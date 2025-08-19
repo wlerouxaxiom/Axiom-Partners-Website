@@ -1,9 +1,10 @@
 'use client';
+
 import React from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle, Users, Target, Calendar, BarChart3, Award, Search, Lightbulb, Code, GraduationCap } from 'lucide-react';
 
-const ImplementationPage = () => {
+export default function ImplementationPage() {
   const approaches = [
     {
       icon: Search,
@@ -274,6 +275,4 @@ const ImplementationPage = () => {
       </section>
     </div>
   );
-};
-
-export default ImplementationPage;
+}
