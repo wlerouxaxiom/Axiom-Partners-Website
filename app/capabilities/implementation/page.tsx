@@ -118,7 +118,7 @@ export default function Implementation() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center mb-16">
             <motion.div
               initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8 }}
               viewport={{ once: true }}
             >
@@ -141,7 +141,7 @@ export default function Implementation() {
 
             <motion.div
               initial={{ opacity: 0, x: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              whileInView={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.8, delay: 0.2 }}
               viewport={{ once: true }}
               className="bg-gradient-to-br from-blue-50 to-purple-50 rounded-3xl p-8"
@@ -175,7 +175,7 @@ export default function Implementation() {
         </div>
       </section>
 
-      {/* Success Metrics */}
+      {/* Implementation Process */}
       <section className="py-20 bg-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -249,6 +249,18 @@ export default function Implementation() {
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.2 }}
+              viewport={{ once: true }}
+              className="bg-white rounded-2xl p-8 text-center shadow-lg"
+            >
+              <div className="text-4xl font-bold text-blue-600 mb-2">85%</div>
+              <div className="text-slate-700 font-medium">Budget Adherence</div>
+              <p className="text-slate-600 text-sm mt-2">Projects delivered within budget</p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.8, delay: 0.4 }}
               viewport={{ once: true }}
               className="bg-white rounded-2xl p-8 text-center shadow-lg"
@@ -257,18 +269,6 @@ export default function Implementation() {
               <div className="text-slate-700 font-medium">Client Satisfaction</div>
               <p className="text-slate-600 text-sm mt-2">Clients satisfied with implementation results</p>
             </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: true }}
-              className="bg-white rounded-2xl p-8 text-center shadow-lg"
-            >
-              <div className="text-4xl font-bold text-blue-600 mb-2">85%</div>
-              <div className="text-slate-700 font-medium">Budget Adherence</div>
-              <p className="text-slate-600 text-sm mt-2">Projects delivered within budget</p>
-            </div>
           </div>
         </div>
       </section>
