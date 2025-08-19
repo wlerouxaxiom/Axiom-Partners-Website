@@ -3,7 +3,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { CheckCircle, Users, Target, Calendar, BarChart3, Award, Search, Lightbulb, Code, GraduationCap } from 'lucide-react';
 
-export default function Implementation() {
+const ImplementationPage = () => {
   const approaches = [
     {
       icon: Search,
@@ -274,4 +274,6 @@ export default function Implementation() {
       </section>
     </div>
   );
-}
+};
+
+export default ImplementationPage;
