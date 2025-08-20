@@ -2,7 +2,7 @@
 import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { ArrowRight, TrendingUp, Users, Target, Heart } from 'lucide-react';
+import { ArrowRight, TrendingUp, Users, Target, Heart, GraduationCap, Award } from 'lucide-react';
 
 const Hero = () => {
   return (
@@ -61,9 +61,9 @@ const Hero = () => {
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="body-lg text-slate-300 max-w-2xl leading-relaxed"
               >
-                University of Waterloo students bringing fresh perspectives and cutting-edge methodologies 
-                to strategic consulting. We combine academic rigor with practical experience to deliver 
-                transformative solutions for manufacturing, logistics, and non-profit organizations.
+                Fresh perspectives from University of Waterloo graduates combining academic rigor 
+                with real-world experience. We deliver integrated, full-cycle consulting that transforms 
+                strategic insights into practical automation solutions for small and medium businesses.
               </motion.p>
               
               {/* Credentials Badge */}
@@ -82,7 +82,7 @@ const Hero = () => {
                 <div className="inline-flex items-center px-4 py-2 bg-gradient-to-r from-blue-500/20 to-purple-500/20 rounded-xl border border-blue-500/30 backdrop-blur-sm">
                   <div className="w-2 h-2 bg-blue-400 rounded-full mr-3 animate-pulse"></div>
                   <span className="text-sm font-semibold text-blue-300">
-                    Next-Gen Methodologies
+                    Automation-First Approach
                   </span>
                 </div>
               </motion.div>
@@ -111,7 +111,7 @@ const Hero = () => {
               </Link>
             </motion.div>
 
-            {/* Stats */}
+            {/* Credentials & Experience */}
             <motion.div 
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
@@ -120,21 +120,21 @@ const Hero = () => {
             >
               <div className="text-center group">
                 <div className="text-3xl font-bold gradient-text-primary bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-300">
-                  50+
+                  2025
                 </div>
-                <div className="text-slate-300 text-sm">Projects Completed</div>
+                <div className="text-slate-300 text-sm">Founded</div>
               </div>
               <div className="text-center group">
                 <div className="text-3xl font-bold gradient-text-primary bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-300">
-                  4
+                  5+
                 </div>
-                <div className="text-slate-300 text-sm">Core Industries</div>
+                <div className="text-slate-300 text-sm">Target Industries</div>
               </div>
               <div className="text-center group">
                 <div className="text-3xl font-bold gradient-text-primary bg-gradient-to-r from-blue-400 to-purple-400 bg-clip-text text-transparent group-hover:scale-110 transition-transform duration-300">
-                  95%
+                  SME
                 </div>
-                <div className="text-slate-300 text-sm">Client Satisfaction</div>
+                <div className="text-slate-300 text-sm">Focused</div>
               </div>
             </motion.div>
           </motion.div>
@@ -176,9 +176,9 @@ const Hero = () => {
                 whileHover={{ scale: 1.05 }}
                 className="bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/20 shadow-medium hover:shadow-glow transition-all duration-300 max-w-xs"
               >
-                <Users className="w-6 h-6 text-amber-400 mb-2" />
-                <h4 className="text-white font-semibold text-sm mb-1">Team Excellence</h4>
-                <p className="text-slate-300 text-xs">Building high-performing organizations</p>
+                <GraduationCap className="w-6 h-6 text-amber-400 mb-2" />
+                <h4 className="text-white font-semibold text-sm mb-1">Academic Foundation</h4>
+                <p className="text-slate-300 text-xs">University of Waterloo excellence</p>
               </motion.div>
             </div>
 
@@ -187,9 +187,9 @@ const Hero = () => {
                 whileHover={{ scale: 1.05 }}
                 className="bg-white/10 backdrop-blur-md rounded-2xl p-4 border border-white/20 shadow-medium hover:shadow-glow transition-all duration-300 max-w-xs"
               >
-                <Target className="w-6 h-6 text-green-400 mb-2" />
-                <h4 className="text-white font-semibold text-sm mb-1">Precision Execution</h4>
-                <p className="text-slate-300 text-xs">Delivering measurable results consistently</p>
+                <Award className="w-6 h-6 text-green-400 mb-2" />
+                <h4 className="text-white font-semibold text-sm mb-1">Professional Experience</h4>
+                <p className="text-slate-300 text-xs">Big 4 consulting and real-world expertise</p>
               </motion.div>
             </div>
           </motion.div>
