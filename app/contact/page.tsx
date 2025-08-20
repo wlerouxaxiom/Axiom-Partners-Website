@@ -1,7 +1,7 @@
 'use client';
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Send, CheckCircle, Heart, Building, Factory, GraduationCap, Truck } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle, Heart, Building, Factory, GraduationCap, Truck, AlertCircle } from 'lucide-react';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -13,16 +13,59 @@ export default function Contact() {
     message: ''
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
   const [activeForm, setActiveForm] = useState('general');
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+    setIsSubmitting(true);
+    setSubmitError('');
     
-    // Analytics tracking for form submissions
-    // Form submission logic here
-    
-    setIsSubmitted(true);
-    setTimeout(() => setIsSubmitted(false), 3000);
+    try {
+      // EmailJS configuration
+      const serviceId = 'service_axiom'; // You'll get this from EmailJS
+      const templateId = 'template_contact'; // You'll get this from EmailJS
+      const publicKey = 'YOUR_PUBLIC_KEY'; // You'll get this from EmailJS
+      
+      const templateParams = {
+        from_name: formData.name,
+        from_email: formData.email,
+        company: formData.company || 'Not specified',
+        industry: formData.industry || 'Not specified',
+        service_type: activeForm === 'probono' ? 'Pro Bono Services' : 'General Consulting',
+        message: formData.message,
+        to_email: 'inquiries@axiompartners.ca'
+      };
+
+      // Import EmailJS dynamically
+      const emailjs = await import('@emailjs/browser');
+      
+      const response = await emailjs.send(
+        serviceId,
+        templateId,
+        templateParams,
+        publicKey
+      );
+
+      if (response.status === 200) {
+        setIsSubmitted(true);
+        setFormData({
+          name: '',
+          email: '',
+          company: '',
+          industry: '',
+          serviceType: 'general',
+          message: ''
+        });
+        setTimeout(() => setIsSubmitted(false), 5000);
+      }
+    } catch (error) {
+      console.error('Email send error:', error);
+      setSubmitError('Failed to send message. Please try again or email us directly.');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -131,6 +174,31 @@ export default function Contact() {
                   </ul>
                 </div>
               )}
+
+              {/* Error Message */}
+              {submitError && (
+                <div className="bg-red-50 border border-red-200 rounded-xl p-4 mb-6">
+                  <div className="flex items-center">
+                    <AlertCircle className="w-5 h-5 text-red-600 mr-2" />
+                    <p className="text-red-700">{submitError}</p>
+                  </div>
+                </div>
+              )}
+
+              {/* Success Message */}
+              {isSubmitted && (
+                <div className="bg-green-50 border border-green-200 rounded-xl p-6 mb-8">
+                  <div className="flex items-center mb-2">
+                    <CheckCircle className="w-6 h-6 text-green-600 mr-2" />
+                    <h3 className="text-lg font-semibold text-green-800">
+                      {activeForm === 'probono' ? 'Application Submitted!' : 'Message Sent!'}
+                    </h3>
+                  </div>
+                  <p className="text-green-700">
+                    Thank you for contacting us. We'll respond within 24 hours.
+                  </p>
+                </div>
+              )}
               
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -225,19 +293,19 @@ export default function Contact() {
 
                 <motion.button
                   type="submit"
-                  whileHover={{ scale: 1.02 }}
-                  whileTap={{ scale: 0.98 }}
+                  whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
+                  whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
                   className={`w-full px-8 py-4 rounded-lg transition-colors font-semibold flex items-center justify-center group ${
                     activeForm === 'probono'
                       ? 'bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white'
                       : 'bg-blue-600 hover:bg-blue-700 text-white'
-                  }`}
-                  disabled={isSubmitted}
+                  } ${isSubmitting ? 'opacity-75 cursor-not-allowed' : ''}`}
+                  disabled={isSubmitting}
                 >
-                  {isSubmitted ? (
+                  {isSubmitting ? (
                     <>
-                      <CheckCircle className="w-5 h-5 mr-2" />
-                      {activeForm === 'probono' ? 'Application Submitted!' : 'Message Sent!'}
+                      <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
+                      Sending...
                     </>
                   ) : (
                     <>
