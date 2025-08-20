@@ -24,9 +24,9 @@ export default function Contact() {
     
     try {
       // EmailJS configuration
-      const serviceId = 'service_axiom'; // You'll get this from EmailJS
-      const templateId = 'template_contact'; // You'll get this from EmailJS
-      const publicKey = 'YOUR_PUBLIC_KEY'; // You'll get this from EmailJS
+      const serviceId = 'service_9mb27wl'; // You'll get this from EmailJS
+      const templateId = 'template_okj37dg'; // You'll get this from EmailJS
+      const publicKey = 'PbuPar3oCKYLGGbSh'; // You'll get this from EmailJS
       
       const templateParams = {
         from_name: formData.name,
