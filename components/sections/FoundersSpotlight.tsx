@@ -11,9 +11,9 @@ const FoundersSpotlight = () => {
       title: "Co-Founder & Partner",
       program: "Accounting & Financial Management",
       year: "Current Student",
-      expertise: ["Strategic Leadership", "Big 4 Consulting", "Tax Strategy"],
-      experience: "President, Kick Conference | Ex-Big 4",
-      community: "Youth Advisory Council Founding Member | Community Advisor"
+      expertise: ["Process Automation", "Financial Analysis", "Strategic Leadership"],
+      experience: "Staff Accountant at KPMG | Aquatics Manager at PPL Group | President's Scholarship Recipient",
+      community: "Founding Advisory Board Member, Halton Regional Police | Policy Development & Community Engagement"
     },
     {
       name: "Roisin Djukic",
