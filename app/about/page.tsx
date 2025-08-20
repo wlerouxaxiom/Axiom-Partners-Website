@@ -7,31 +7,31 @@ import { ArrowRight, Users, Target, Award, Calendar, TrendingUp, Heart, Lightbul
 export default function About() {
   const timelineEvents = [
     {
-      date: 'January 2024',
-      title: 'Foundation',
-      description: 'Wyatt Leroux and Roisin Djukic founded Axiom Partners while pursuing their engineering degrees at the University of Waterloo.',
+      date: 'June 2025',
+      title: 'The Inspiration Moment',
+      description: 'Wyatt Leroux and Roisin Djukic discovered a shared passion for transforming strategic insights into action. Their vision for full-cycle consulting—seamlessly bridging strategy, operations, and implementation—was born.',
+      icon: Lightbulb,
+      color: 'purple'
+    },
+    {
+      date: 'July 2025',
+      title: 'Axiom Partners Founded',
+      description: 'Axiom Partners was officially established to close the gap left by larger firms that separate strategic planning from execution. From the start, our mission has been to deliver integrated, end-to-end consulting tailored to growing businesses.',
       icon: Users,
       color: 'blue'
     },
     {
-      date: 'March 2024',
-      title: 'First Client Engagements',
-      description: 'Secured initial consulting projects in manufacturing optimization and non-profit operational improvement.',
-      icon: TrendingUp,
+      date: 'August 2025',
+      title: 'SME Focus & Automation Vision',
+      description: 'We identified that small and mid-sized businesses often lack the resources of legacy systems but can thrive with automation-first strategies. This realization set the foundation for our consulting model: combining innovation with practical implementation to empower SMEs.',
+      icon: Building,
       color: 'green'
     },
     {
-      date: 'June 2024',
-      title: 'Pro Bono Program Launch',
-      description: 'Launched comprehensive pro bono consulting services for local SMEs and community organizations.',
-      icon: Heart,
-      color: 'purple'
-    },
-    {
-      date: 'September 2024',
-      title: 'Industry Recognition',
-      description: 'Gained recognition for innovative approaches to traditional consulting challenges across multiple sectors.',
-      icon: Award,
+      date: 'September 2025',
+      title: 'Educational Commitment Launch',
+      description: 'Hosted case study workshops with local high schools at the University of Waterloo, helping students understand accounting and finance career paths. Established our commitment to education and industry awareness.',
+      icon: GraduationCap,
       color: 'amber'
     }
   ];
@@ -58,8 +58,8 @@ export default function About() {
               About <span className="text-blue-400">Axiom Partners</span>
             </h1>
             <p className="text-xl text-slate-300 max-w-4xl mx-auto leading-relaxed">
-              Founded by University of Waterloo students with a passion for strategic excellence, 
-              we deliver transformative consulting solutions that drive measurable results.
+              Founded in 2025 by University of Waterloo graduates with a passion for strategic excellence, 
+              we deliver transformative consulting solutions combining academic rigor with automation-first approaches.
             </p>
           </motion.div>
         </div>
@@ -78,9 +78,8 @@ export default function About() {
             <h2 className="text-4xl font-bold text-slate-800 mb-8">Our Mission</h2>
             <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-3xl p-12 border-l-8 border-blue-600 max-w-5xl mx-auto">
               <p className="text-2xl text-slate-700 leading-relaxed font-medium italic">
-                "To empower organizations with strategic insights and operational excellence 
-                that drive sustainable growth, create meaningful impact, and build a better future 
-                for communities and stakeholders."
+                "To empower small and medium businesses with integrated, full-cycle consulting that transforms 
+                strategic insights into practical automation solutions, creating meaningful impact and sustainable growth."
               </p>
             </div>
           </motion.div>
@@ -95,7 +94,29 @@ export default function About() {
             >
               <Lightbulb className="w-12 h-12 text-blue-600 mx-auto mb-4" />
               <h3 className="text-xl font-bold text-slate-800 mb-3">Innovation</h3>
-              <p className="text-slate-600">Fresh perspectives and cutting-edge methodologies</p>
+              <p className="text-slate-600">Fresh perspectives and automation-first methodologies</p>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.4 }}
+              viewport={{ once: true }}
+              className="text-center"
+            >
+              <Building className="w-12 h-12 text-blue-600 mx-auto mb-4" />
+              <h3 className="text-xl font-bold text-slate-800 mb-3">SME Focus</h3>
+              <p className="text-slate-600">Specialized solutions for small and medium enterprises</p>
+            </motion.div>
+            <motion.div
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.8, delay: 0.6 }}
+              viewport={{ once: true }}
+              className="text-center"
+            >
+              <Heart className="w-12 h-12 text-blue-600 mx-auto mb-4" />
+              <h3 className="text-xl font-bold text-slate-800 mb-3">Community</h3>
+              <p className="text-slate-600">Pro bono services and educational advocacy</p>
             </motion.div>
           </div>
         </div>
@@ -250,8 +271,8 @@ export default function About() {
           >
             <h2 className="text-4xl font-bold text-slate-800 mb-6">Founded by Excellence</h2>
             <p className="text-xl text-slate-600 mb-8 max-w-3xl mx-auto leading-relaxed">
-              Wyatt Leroux and Roisin Djukic bring together Systems Design Engineering and Management Engineering 
-              expertise from the University of Waterloo, combined with professional consulting experience 
+              Wyatt Leroux and Roisin Djukic bring together Accounting & Financial Management 
+              expertise from the University of Waterloo, combined with Big 4 consulting experience 
               and a commitment to community impact.
             </p>
             <Link 
@@ -325,12 +346,12 @@ export default function About() {
               </h2>
               <p className="text-lg text-slate-600 mb-6 leading-relaxed">
                 We represent the next generation of strategic consulting, combining the analytical rigor 
-                of University of Waterloo engineering programs with real-world consulting experience 
+                of University of Waterloo programs with real-world consulting experience 
                 from leading firms.
               </p>
               <p className="text-lg text-slate-600 mb-8 leading-relaxed">
                 Our unique perspective allows us to bridge the gap between traditional consulting 
-                approaches and innovative, technology-driven solutions that today's organizations need 
+                approaches and innovative, automation-driven solutions that today's SMEs need 
                 to thrive in an evolving marketplace.
               </p>
               <Link 
@@ -351,22 +372,22 @@ export default function About() {
             >
               <div className="space-y-6">
                 <div className="bg-white rounded-2xl p-6 shadow-lg">
-                  <div className="text-3xl font-bold text-blue-600 mb-2">50+</div>
-                  <div className="text-slate-700 font-medium">Client Engagements</div>
+                  <div className="text-3xl font-bold text-blue-600 mb-2">2025</div>
+                  <div className="text-slate-700 font-medium">Founded</div>
                 </div>
                 <div className="bg-white rounded-2xl p-6 shadow-lg">
-                  <div className="text-3xl font-bold text-blue-600 mb-2">95%</div>
-                  <div className="text-slate-700 font-medium">Client Satisfaction</div>
+                  <div className="text-3xl font-bold text-green-600 mb-2">SME</div>
+                  <div className="text-slate-700 font-medium">Focused</div>
                 </div>
               </div>
               <div className="space-y-6 pt-8">
                 <div className="bg-white rounded-2xl p-6 shadow-lg">
-                  <div className="text-3xl font-bold text-blue-600 mb-2">3</div>
-                  <div className="text-slate-700 font-medium">Years Experience</div>
+                  <div className="text-3xl font-bold text-purple-600 mb-2">5+</div>
+                  <div className="text-slate-700 font-medium">Target Industries</div>
                 </div>
                 <div className="bg-white rounded-2xl p-6 shadow-lg">
-                  <div className="text-3xl font-bold text-green-600 mb-2">25+</div>
-                  <div className="text-slate-700 font-medium">Pro Bono Projects</div>
+                  <div className="text-3xl font-bold text-amber-600 mb-2">UW</div>
+                  <div className="text-slate-700 font-medium">Alumni</div>
                 </div>
               </div>
             </motion.div>
