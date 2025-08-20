@@ -330,14 +330,14 @@ export default function Contact() {
                 <div className="space-y-4">
                   <div className="flex items-center justify-between">
                     <span className="text-slate-700">Wyatt Leroux</span>
-                    <a href="mailto:wyatt@axiompartners.ca" className="text-blue-600 hover:text-blue-700 font-medium">
-                      wyatt@axiompartners.ca
+                    <a href="mailto:wleroux@axiompartners.ca" className="text-blue-600 hover:text-blue-700 font-medium">
+                      wleroux@axiompartners.ca
                     </a>
                   </div>
                   <div className="flex items-center justify-between">
                     <span className="text-slate-700">Roisin Djukic</span>
-                    <a href="mailto:roisin@axiompartners.ca" className="text-blue-600 hover:text-blue-700 font-medium">
-                      roisin@axiompartners.ca
+                    <a href="mailto:rdjukic@axiompartners.ca" className="text-blue-600 hover:text-blue-700 font-medium">
+                      rdjukic@axiompartners.ca
                     </a>
                   </div>
                 </div>
