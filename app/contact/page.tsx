@@ -25,7 +25,7 @@ export default function Contact() {
     setTimeout(() => setIsSubmitted(false), 3000);
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
@@ -167,7 +167,7 @@ export default function Contact() {
                 </div>
                 
                 <div>
-                  <label htmlFor="company" className="block text-sm font-medium text-slate-700 mb-2 flex items-center">
+                  <label htmlFor="company" className="text-sm font-medium text-slate-700 mb-2 flex items-center">
                     {activeForm === 'probono' ? 'Organization Name' : 'Company/Organization'}
                     {activeForm === 'probono' && <span className="text-red-500 ml-1">*</span>}
                   </label>
