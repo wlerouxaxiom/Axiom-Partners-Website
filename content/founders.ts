@@ -13,14 +13,14 @@ export const founders: Founder[] = [
   {
     name: "Wyatt Leroux",
     title: "Co-Founder & Partner",
-    bio: "Wyatt brings exceptional leadership experience as President of Kick Conference and extensive professional background from Big 4 consulting and tax consulting roles. A founding member of the Youth Advisory Council at age 14, he has demonstrated remarkable leadership capabilities from an early age. His community advisor background and analytical expertise have helped numerous clients achieve significant operational improvements and strategic growth.",
+    bio: "Wyatt Leroux is Co-Founder of Axiom Partners, a strategic consulting firm specializing in integrated consulting solutions for small and medium enterprises. The firm delivers full-cycle services spanning strategy development, operational optimization, and implementation across manufacturing, non-profit, education, and logistics sectors. Leroux oversees the firm's automation-first consulting methodology and client engagement strategy. He brings professional experience from KPMG LLP, where he served as Staff Accountant in US Corporate Tax, developing process automation solutions and conducting multi-state tax analysis for large corporate clients. Prior to founding Axiom Partners, he held operational management roles at PPL Aquatic Group, focusing on process optimization and cost reduction initiatives across multiple locations. His early leadership experience includes serving as a Founding Advisory Board Member of the Halton Regional Police, where he contributed to policy development and community engagement initiatives. Leroux is pursuing his Bachelor's degree in Accounting and Financial Management at the University of Waterloo, where he received the President's Scholarship. He has competed in multiple business case competitions and holds experience in financial modeling, data analysis, and process automation across diverse industries.",
     expertise: [
-      "Strategic Leadership & Management",
-      "Big 4 Consulting Methodologies",
-      "Tax Strategy & Optimization",
-      "Youth Leadership Development",
-      "Community Advisory Services",
-      "Financial Analysis & Planning"
+      "Process Automation",
+      "Financial Analysis",
+      "Strategic Leadership",
+      "Multi-State Tax Analysis",
+      "Operational Optimization",
+      "Policy Development"
     ],
     education: "University of Waterloo - Accounting & Financial Management",
     image: "https://media.licdn.com/dms/image/v2/D5603AQHNLmdafDtgEA/profile-displayphoto-scale_400_400/B56ZjDuyErG4Ak-/0/1755630486968?e=1758758400&v=beta&t=bLVX5wBdYxcGIm-D9QBn2nYj_StzQ5treijsFHcCmrY",
