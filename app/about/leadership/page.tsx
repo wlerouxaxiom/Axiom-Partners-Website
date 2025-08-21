@@ -64,19 +64,6 @@ export default function Leadership() {
 
                   <p className="text-lg text-slate-600 leading-relaxed">{founder.bio}</p>
 
-                  {/* Expertise */}
-                  <div>
-                    <h4 className="text-lg font-semibold text-slate-800 mb-4">Areas of Expertise</h4>
-                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
-                      {founder.expertise.map((skill) => (
-                        <div key={skill} className="flex items-center">
-                          <div className="w-2 h-2 bg-blue-600 rounded-full mr-3"></div>
-                          <span className="text-slate-600">{skill}</span>
-                        </div>
-                      ))}
-                    </div>
-                  </div>
-
                   {/* Contact */}
                   <div className="flex items-center space-x-4 pt-4">
                     <a 
