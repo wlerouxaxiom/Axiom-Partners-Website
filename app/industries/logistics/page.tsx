@@ -6,24 +6,24 @@ import { Truck, CheckCircle, BarChart3, MapPin, Clock, Award } from 'lucide-reac
 export default function Logistics() {
   const solutions = [
     {
-      icon: MapPin,
-      title: 'Distribution Network Optimization',
-      description: 'Strategic network design for optimal coverage and efficiency'
-    },
-    {
       icon: BarChart3,
-      title: 'Warehouse Management',
-      description: 'Advanced WMS implementation and inventory optimization'
-    },
-    {
-      icon: Clock,
-      title: 'Delivery Excellence',
-      description: 'Last-mile optimization and customer service enhancement'
+      title: 'Cost Analysis & Reduction',
+      description: 'Transportation cost modeling, warehouse expense analysis, and margin optimization by route and customer'
     },
     {
       icon: Award,
-      title: 'Technology Integration',
-      description: 'Seamless integration of logistics technology solutions'
+      title: 'Financial Controls & KPI Dashboards',
+      description: 'Performance measurement systems, cash flow management, and financial process automation'
+    },
+    {
+      icon: MapPin,
+      title: 'Route & Network Optimization',
+      description: 'Distribution center location analysis, delivery route efficiency studies, and capacity utilization improvement'
+    },
+    {
+      icon: Clock,
+      title: 'Technology Implementation Support',
+      description: 'WMS/TMS selection and ROI analysis, system integration planning, and change management'
     }
   ];
 
@@ -43,8 +43,8 @@ export default function Logistics() {
               <span className="text-blue-400">Logistics</span> & 3PL
             </h1>
             <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
-              Streamlining logistics operations, warehouse management, and distribution 
-              networks for maximum efficiency and customer satisfaction.
+              Financial analysis, process optimization, and strategic planning solutions 
+              for logistics companies and 3PL providers seeking operational efficiency.
             </p>
           </motion.div>
         </div>
@@ -62,7 +62,7 @@ export default function Logistics() {
           >
             <h2 className="text-4xl font-bold text-slate-800 mb-6">Logistics Solutions</h2>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              End-to-end logistics optimization for 3PL providers and distribution companies
+              Data-driven financial analysis and process optimization for logistics and 3PL companies
             </p>
           </motion.div>
 
@@ -84,58 +84,6 @@ export default function Logistics() {
               </motion.div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Case Study */}
-      <section className="py-20 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="bg-white rounded-3xl p-12 shadow-xl"
-          >
-            <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-slate-800 mb-6">Success Story</h2>
-              <h3 className="text-2xl text-blue-600 font-semibold">Regional 3PL Provider Optimization</h3>
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-              <div>
-                <h4 className="text-xl font-semibold text-slate-800 mb-4">Challenge</h4>
-                <p className="text-slate-600 mb-6 leading-relaxed">
-                  A growing 3PL provider faced capacity constraints, inefficient warehouse operations, 
-                  and increasing customer demands for faster delivery times while maintaining cost competitiveness.
-                </p>
-                
-                <h4 className="text-xl font-semibold text-slate-800 mb-4">Solution</h4>
-                <p className="text-slate-600 leading-relaxed">
-                  We optimized their warehouse layout, implemented advanced inventory management systems, 
-                  and redesigned their distribution network for improved efficiency and speed.
-                </p>
-              </div>
-
-              <div>
-                <h4 className="text-xl font-semibold text-slate-800 mb-6">Results Achieved</h4>
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between bg-green-50 rounded-xl p-4">
-                    <span className="text-slate-700 font-medium">Efficiency Improvement</span>
-                    <span className="text-2xl font-bold text-green-600">30%</span>
-                  </div>
-                  <div className="flex items-center justify-between bg-blue-50 rounded-xl p-4">
-                    <span className="text-slate-700 font-medium">Cost Reduction</span>
-                    <span className="text-2xl font-bold text-blue-600">25%</span>
-                  </div>
-                  <div className="flex items-center justify-between bg-purple-50 rounded-xl p-4">
-                    <span className="text-slate-700 font-medium">Order Processing Speed</span>
-                    <span className="text-2xl font-bold text-purple-600">40%</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
         </div>
       </section>
     </div>
