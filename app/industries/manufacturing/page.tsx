@@ -6,24 +6,24 @@ import { Factory, CheckCircle, TrendingUp, Settings, Award, Users } from 'lucide
 export default function Manufacturing() {
   const solutions = [
     {
-      icon: Settings,
-      title: 'Lean Manufacturing',
-      description: 'Implementing lean principles to eliminate waste and optimize production flow'
+      icon: TrendingUp,
+      title: 'Cost Analysis & Financial Controls',
+      description: 'Production cost modeling, overhead allocation optimization, and margin analysis by product line'
     },
     {
-      icon: TrendingUp,
-      title: 'Supply Chain Optimization',
-      description: 'Streamlining supply chain processes for improved efficiency and cost reduction'
+      icon: Settings,
+      title: 'Process Automation & Efficiency',
+      description: 'Workflow automation implementation, data collection systems, and operational efficiency analysis'
     },
     {
       icon: Award,
-      title: 'Quality Management',
-      description: 'Developing robust quality systems and continuous improvement processes'
+      title: 'Performance Measurement Systems',
+      description: 'KPI dashboard development, production metrics tracking, and continuous improvement frameworks'
     },
     {
       icon: Users,
-      title: 'Workforce Development',
-      description: 'Training programs and organizational development for manufacturing excellence'
+      title: 'Strategic Planning & Growth Analysis',
+      description: 'Market expansion feasibility, capacity planning, and capital investment ROI analysis'
     }
   ];
 
@@ -43,8 +43,8 @@ export default function Manufacturing() {
               <span className="text-blue-400">Manufacturing</span> Excellence
             </h1>
             <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
-              Optimizing production processes, supply chain efficiency, and quality management 
-              systems for manufacturing excellence and competitive advantage.
+              Financial analysis, process optimization, and strategic planning solutions 
+              for manufacturing companies seeking operational efficiency and growth.
             </p>
           </motion.div>
         </div>
@@ -62,7 +62,7 @@ export default function Manufacturing() {
           >
             <h2 className="text-4xl font-bold text-slate-800 mb-6">Manufacturing Solutions</h2>
             <p className="text-xl text-slate-600 max-w-3xl mx-auto">
-              Comprehensive solutions that address the unique challenges of modern manufacturing
+              Data-driven financial and operational analysis for manufacturing companies
             </p>
           </motion.div>
 
@@ -84,59 +84,6 @@ export default function Manufacturing() {
               </motion.div>
             ))}
           </div>
-        </div>
-      </section>
-
-      {/* Case Study */}
-      <section className="py-20 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="bg-white rounded-3xl p-12 shadow-xl"
-          >
-            <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-slate-800 mb-6">Case Study Highlight</h2>
-              <h3 className="text-2xl text-blue-600 font-semibold">Automotive Parts Manufacturer</h3>
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-              <div>
-                <h4 className="text-xl font-semibold text-slate-800 mb-4">Challenge</h4>
-                <p className="text-slate-600 mb-6 leading-relaxed">
-                  A mid-size automotive parts manufacturer was struggling with high defect rates, 
-                  inefficient production processes, and rising costs that threatened their competitiveness 
-                  in a demanding market.
-                </p>
-                
-                <h4 className="text-xl font-semibold text-slate-800 mb-4">Solution</h4>
-                <p className="text-slate-600 leading-relaxed">
-                  We implemented a comprehensive lean manufacturing program, including value stream 
-                  mapping, quality management systems, and workforce training initiatives.
-                </p>
-              </div>
-
-              <div>
-                <h4 className="text-xl font-semibold text-slate-800 mb-6">Results Achieved</h4>
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between bg-green-50 rounded-xl p-4">
-                    <span className="text-slate-700 font-medium">Cost Reduction</span>
-                    <span className="text-2xl font-bold text-green-600">25%</span>
-                  </div>
-                  <div className="flex items-center justify-between bg-blue-50 rounded-xl p-4">
-                    <span className="text-slate-700 font-medium">Defect Reduction</span>
-                    <span className="text-2xl font-bold text-blue-600">40%</span>
-                  </div>
-                  <div className="flex items-center justify-between bg-purple-50 rounded-xl p-4">
-                    <span className="text-slate-700 font-medium">Productivity Increase</span>
-                    <span className="text-2xl font-bold text-purple-600">30%</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
         </div>
       </section>
     </div>
