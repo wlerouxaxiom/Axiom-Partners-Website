@@ -86,58 +86,6 @@ export default function Education() {
           </div>
         </div>
       </section>
-
-      {/* Case Study */}
-      <section className="py-20 bg-slate-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="bg-white rounded-3xl p-12 shadow-xl"
-          >
-            <div className="text-center mb-12">
-              <h2 className="text-4xl font-bold text-slate-800 mb-6">Success Story</h2>
-              <h3 className="text-2xl text-blue-600 font-semibold">Community College System Transformation</h3>
-            </div>
-
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
-              <div>
-                <h4 className="text-xl font-semibold text-slate-800 mb-4">Challenge</h4>
-                <p className="text-slate-600 mb-6 leading-relaxed">
-                  A community college system faced declining enrollment, low student retention rates, 
-                  and budget constraints while trying to maintain program quality and accessibility.
-                </p>
-                
-                <h4 className="text-xl font-semibold text-slate-800 mb-4">Solution</h4>
-                <p className="text-slate-600 leading-relaxed">
-                  We developed comprehensive student success programs, optimized resource allocation, 
-                  and implemented data-driven decision making systems to improve outcomes.
-                </p>
-              </div>
-
-              <div>
-                <h4 className="text-xl font-semibold text-slate-800 mb-6">Results Achieved</h4>
-                <div className="space-y-4">
-                  <div className="flex items-center justify-between bg-green-50 rounded-xl p-4">
-                    <span className="text-slate-700 font-medium">Retention Increase</span>
-                    <span className="text-2xl font-bold text-green-600">20%</span>
-                  </div>
-                  <div className="flex items-center justify-between bg-blue-50 rounded-xl p-4">
-                    <span className="text-slate-700 font-medium">Graduation Rate Improvement</span>
-                    <span className="text-2xl font-bold text-blue-600">15%</span>
-                  </div>
-                  <div className="flex items-center justify-between bg-purple-50 rounded-xl p-4">
-                    <span className="text-slate-700 font-medium">Cost Per Student Reduction</span>
-                    <span className="text-2xl font-bold text-purple-600">25%</span>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-        </div>
-      </section>
     </div>
   );
 }
