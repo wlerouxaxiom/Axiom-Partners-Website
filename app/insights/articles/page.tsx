@@ -1,73 +1,52 @@
 'use client';
 import React from 'react';
+import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { Calendar, User, Clock, ArrowRight } from 'lucide-react';
+import { Calendar, User, Clock, ArrowRight, ExternalLink } from 'lucide-react';
 
 export default function Articles() {
   const articles = [
     {
-      title: 'The Future of Manufacturing: Embracing Digital Transformation',
-      excerpt: 'How modern manufacturers can leverage technology and lean principles to build competitive advantage in an evolving marketplace. This comprehensive analysis explores the intersection of digital tools and traditional manufacturing excellence.',
+      title: 'Next-Gen Consulting: A Student Perspective',
+      excerpt: 'How University of Waterloo students are bringing fresh perspectives and innovative methodologies to traditional consulting challenges, combining academic rigor with real-world experience.',
       author: 'Wyatt Leroux',
       date: 'January 15, 2025',
       readTime: '5 min read',
-      category: 'Manufacturing',
-      image: 'https://images.pexels.com/photos/1267338/pexels-photo-1267338.jpeg?auto=compress&cs=tinysrgb&w=600'
+      category: 'Consulting',
+      image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=600',
+      // Add actual links here - replace with real URLs when you publish articles
+      url: 'https://medium.com/@wyattleroux/next-gen-consulting-student-perspective',
+      isExternal: true
     },
     {
-      title: 'Non-Profit Excellence: Maximizing Impact with Limited Resources',
-      excerpt: 'Strategic approaches for non-profit organizations to enhance program effectiveness while maintaining financial sustainability. Learn how to optimize operations and measure impact effectively.',
-      author: 'Roisin Djukic',
+      title: 'Financial Analysis for Small Business Growth',
+      excerpt: 'Practical frameworks for SMEs to leverage financial data for strategic decision-making and sustainable growth in competitive markets.',
+      author: 'Wyatt Leroux',
       date: 'January 10, 2025',
       readTime: '4 min read',
-      category: 'Non-Profit',
-      image: 'https://images.pexels.com/photos/6646918/pexels-photo-6646918.jpeg?auto=compress&cs=tinysrgb&w=600'
+      category: 'Finance',
+      image: 'https://images.pexels.com/photos/1267338/pexels-photo-1267338.jpeg?auto=compress&cs=tinysrgb&w=600',
+      url: 'https://linkedin.com/pulse/financial-analysis-small-business-wyatt-leroux',
+      isExternal: true
     },
     {
-      title: 'Supply Chain Resilience: Lessons from Recent Global Disruptions',
-      excerpt: 'Building robust and flexible supply chains that can adapt to unexpected challenges while maintaining operational efficiency. Key strategies for risk mitigation and agility.',
-      author: 'Wyatt Leroux',
+      title: 'Process Automation in Professional Services',
+      excerpt: 'Lessons learned from implementing automation solutions at Big 4 consulting firms and how smaller firms can adopt similar efficiencies.',
+      author: 'Roisin Djukic',
       date: 'January 5, 2025',
       readTime: '6 min read',
-      category: 'Logistics',
-      image: 'https://images.pexels.com/photos/906494/pexels-photo-906494.jpeg?auto=compress&cs=tinysrgb&w=600'
-    },
-    {
-      title: 'Educational Innovation: Transforming Student Success Through Data',
-      excerpt: 'How educational institutions can use data analytics and strategic planning to improve student outcomes and institutional effectiveness. Practical frameworks for educational excellence.',
-      author: 'Roisin Djukic',
-      date: 'December 28, 2024',
-      readTime: '7 min read',
-      category: 'Education',
-      image: 'https://images.pexels.com/photos/289737/pexels-photo-289737.jpeg?auto=compress&cs=tinysrgb&w=600'
-    },
-    {
-      title: 'Lean Six Sigma in Modern Organizations: Beyond Manufacturing',
-      excerpt: 'Applying lean principles and Six Sigma methodologies across diverse industries to drive operational excellence and continuous improvement.',
-      author: 'Wyatt Leroux',
-      date: 'December 20, 2024',
-      readTime: '5 min read',
       category: 'Operations',
-      image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=600'
-    },
-    {
-      title: 'Strategic Planning for Uncertain Times: Building Adaptive Organizations',
-      excerpt: 'Developing strategic frameworks that enable organizations to thrive in uncertainty while maintaining focus on long-term objectives and sustainable growth.',
-      author: 'Roisin Djukic',
-      date: 'December 15, 2024',
-      readTime: '6 min read',
-      category: 'Strategy',
-      image: 'https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=600'
+      image: 'https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=600',
+      url: 'https://medium.com/@roisindjukic/process-automation-professional-services',
+      isExternal: true
     }
   ];
 
   const categoryColors = {
-    'Manufacturing': 'bg-blue-100 text-blue-800',
-    'Non-Profit': 'bg-green-100 text-green-800',
-    'Logistics': 'bg-purple-100 text-purple-800',
-    'Education': 'bg-orange-100 text-orange-800',
-    'Operations': 'bg-indigo-100 text-indigo-800',
-    'Strategy': 'bg-pink-100 text-pink-800'
+    'Consulting': 'bg-blue-100 text-blue-800',
+    'Finance': 'bg-green-100 text-green-800',
+    'Operations': 'bg-purple-100 text-purple-800',
+    'Strategy': 'bg-orange-100 text-orange-800'
   };
 
   return (
@@ -145,10 +124,25 @@ export default function Articles() {
                         <Calendar className="w-4 h-4 mr-1" />
                         <span>{article.date}</span>
                       </div>
-                      <button className="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium group/link">
-                        Read More
-                        <ArrowRight className="ml-1 w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
-                      </button>
+                      {article.isExternal ? (
+                        <a 
+                          href={article.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium group/link"
+                        >
+                          Read Article
+                          <ExternalLink className="ml-1 w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
+                        </a>
+                      ) : (
+                        <Link 
+                          href={article.url}
+                          className="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium group/link"
+                        >
+                          Read Article
+                          <ArrowRight className="ml-1 w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
+                        </Link>
+                      )}
                     </div>
                   </div>
                 </article>
@@ -158,7 +152,7 @@ export default function Articles() {
         </div>
       </section>
 
-      {/* Newsletter Signup */}
+      {/* Call to Action */}
       <section className="py-20 bg-slate-50">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -168,20 +162,17 @@ export default function Articles() {
             viewport={{ once: true }}
             className="bg-gradient-to-r from-blue-600 to-purple-600 rounded-3xl p-12 text-center text-white"
           >
-            <h2 className="text-3xl font-bold mb-4">Stay Updated</h2>
+            <h2 className="text-3xl font-bold mb-4">Have Insights to Share?</h2>
             <p className="text-xl mb-8 opacity-90">
-              Get the latest student perspectives and next-generation consulting insights delivered to your inbox
+              We're always looking for fresh perspectives from students and young professionals
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-              <input 
-                type="email"
-                placeholder="Enter your email"
-                className="flex-1 px-4 py-3 rounded-lg text-slate-800 focus:outline-none focus:ring-2 focus:ring-white"
-              />
-              <button className="px-6 py-3 bg-white text-blue-600 rounded-lg hover:bg-slate-100 transition-colors font-semibold">
-                Subscribe
-              </button>
-            </div>
+            <Link 
+              href="/contact"
+              className="inline-flex items-center px-8 py-4 bg-white text-blue-600 rounded-lg hover:bg-slate-100 transition-colors font-semibold"
+            >
+              Submit Your Article
+              <ArrowRight className="ml-2 w-5 h-5" />
+            </Link>
           </motion.div>
         </div>
       </section>
