@@ -15,7 +15,7 @@ export default function Articles() {
       category: 'Consulting',
       image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=600',
       // Add actual links here - replace with real URLs when you publish articles
-      url: 'https://medium.com/@wyattleroux/next-gen-consulting-student-perspective',
+      url: 'https://medium.com/@wleroux_24242/next-gen-consulting-a-student-perspective-0939b0733305',
       isExternal: true
     },
     {
