@@ -2,30 +2,30 @@
 import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
-import { TrendingUp, Cog, Wrench, CheckCircle, ArrowRight } from 'lucide-react';
+import { Zap, Settings, Wrench, CheckCircle, ArrowRight } from 'lucide-react';
 
 const ServicesOverview = () => {
   const services = [
     {
-      icon: TrendingUp,
-      title: 'Strategy & Corporate Finance',
-      description: 'Comprehensive strategic frameworks and financial analysis that align organizational goals with market opportunities and drive sustainable competitive advantage.',
+      icon: Zap,
+      title: 'Data-Driven Growth',
+      description: 'Automated market analysis, real-time financial modeling, and performance dashboards that update automatically—no more manual reporting.',
       href: '/capabilities/strategy',
-      features: ['Market Research', 'Financial Analysis', 'Strategic Planning', 'Competitive Intelligence']
+      features: ['Automated Market Analysis', 'Real-time Financial Modeling', 'Performance Dashboards', 'Competitive Intelligence']
     },
     {
-      icon: Cog,
-      title: 'Operations',
-      description: 'Process optimization and operational transformation that enhances efficiency, reduces costs, and improves quality across all business functions.',
+      icon: Settings,
+      title: 'Process Automation',
+      description: 'Workflow automation that eliminates manual tasks, AI-powered optimization, and integration solutions that connect your systems seamlessly.',
       href: '/capabilities/operations',
-      features: ['Process Optimization', 'Efficiency Improvements', 'Workflow Analysis', 'Performance Metrics']
+      features: ['Workflow Automation', 'AI-Powered Optimization', 'System Integration', 'Continuous Improvement']
     },
     {
       icon: Wrench,
-      title: 'Implementation & Build',
-      description: 'Custom systems development and technology solutions that transform strategic initiatives into operational reality with measurable results.',
+      title: 'Custom Solutions',
+      description: 'Tailored automation frameworks, end-to-end deployment with guaranteed adoption, and ongoing optimization based on real performance data.',
       href: '/capabilities/implementation',
-      features: ['Custom Systems', 'Tailored Applications', 'Technology Solutions', 'Integration Support']
+      features: ['Custom Automation Systems', 'End-to-end Deployment', 'Performance-based Optimization', 'Integration Support']
     }
   ];
 
@@ -40,11 +40,11 @@ const ServicesOverview = () => {
           className="text-center mb-16"
         >
           <h2 className="text-4xl md:text-5xl font-bold text-slate-800 mb-6">
-            Our <span className="text-blue-600">Capabilities</span>
+            Our <span className="text-blue-600">Automation Solutions</span>
           </h2>
           <p className="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed">
-            We deliver comprehensive consulting solutions that transform challenges into opportunities, 
-            driving measurable outcomes across strategy, operations, and implementation.
+            Purpose-built automation systems that eliminate manual processes and deliver 
+            measurable results in weeks, not months.
           </p>
         </motion.div>
 

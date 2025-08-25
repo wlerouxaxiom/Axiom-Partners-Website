@@ -1,15 +1,17 @@
-import Hero from '@/components/sections/Hero';
+import VideoHero from '@/components/sections/VideoHero';
+import ValueProposition from '@/components/sections/ValueProposition';
 import ServicesOverview from '@/components/sections/ServicesOverview';
 import IndustriesOverview from '@/components/sections/IndustriesOverview';
-import FoundersSpotlight from '@/components/sections/FoundersSpotlight';
+import ProBonoSection from '@/components/sections/ProBonoSection';
 
 export default function Home() {
   return (
     <div className="flex flex-col">
-      <Hero />
+      <VideoHero />
+      <ValueProposition />
       <ServicesOverview />
       <IndustriesOverview />
-      <FoundersSpotlight />
+      <ProBonoSection />
     </div>
   );
 }
