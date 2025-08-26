@@ -90,10 +90,10 @@ const Header = () => {
         ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-slate-200/50' 
         : 'bg-slate-900/90 backdrop-blur-sm'
     }`}>
-      <nav className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
+      <nav className="max-w-7xl mx-auto pl-2 pr-6 sm:pl-4 sm:pr-8 lg:pl-6 lg:pr-10">
         <div className="flex justify-between items-center h-24">
-          {/* Logo */}
-          <Link href="/" className="flex-shrink-0">
+          {/* Logo - moved further left */}
+          <Link href="/" className="flex-shrink-0 -ml-4">
             <AxiomLogo 
               className="hover:scale-105 transition-transform duration-300"
               textClassName={isScrolled ? 'text-slate-800' : 'text-white'}
@@ -151,8 +151,8 @@ const Header = () => {
               </div>
             ))}
 
-            {/* CTA Buttons */}
-            <div className="flex items-center space-x-4 ml-12">
+            {/* CTA Buttons - increased spacing between them */}
+            <div className="flex items-center space-x-8 ml-16">
               <Link
                 href="/contact"
                 className={`inline-flex items-center px-5 py-3 rounded-lg font-bold tracking-wide text-sm transition-all duration-200 uppercase ${
