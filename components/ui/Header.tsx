@@ -7,25 +7,17 @@ import { Menu, X, ChevronDown, Heart, Building, Users, Target, TrendingUp, Cog, 
 
 // Logo Component
 const AxiomLogo = ({ className = "", textClassName = "" }) => (
-  <div className={`flex items-center space-x-3 group ${className}`}>
-    <div className="relative">
-      {/* Main logo circle with gradient */}
-      <div className="w-12 h-12 bg-gradient-to-br from-blue-600 via-purple-600 to-blue-700 rounded-xl flex items-center justify-center group-hover:scale-105 transition-transform duration-300 shadow-lg">
-        <span className="text-white font-bold text-xl tracking-tight">A</span>
-      </div>
-      {/* Subtle glow effect */}
-      <div className="absolute inset-0 w-12 h-12 bg-gradient-to-br from-blue-400 to-purple-400 rounded-xl opacity-20 group-hover:opacity-30 transition-opacity duration-300 blur-sm"></div>
-    </div>
-    <div className="flex flex-col">
-      <span className={`font-bold text-xl tracking-tight transition-colors ${textClassName}`}>
-        Axiom Partners
-      </span>
-      <span className={`text-xs font-semibold tracking-wide transition-colors ${
+  <div className={`group ${className}`}>
+    <span className={`font-bold text-2xl tracking-wide transition-colors group-hover:scale-105 transition-transform duration-300 ${textClassName}`}>
+      AXIOM PARTNERS
+    </span>
+    <div className="text-xs font-light tracking-widest mt-1">
+      <span className={`transition-colors ${
         textClassName.includes('text-white') || textClassName.includes('text-slate-800') 
-          ? textClassName.includes('text-white') ? 'text-blue-200' : 'text-blue-600' 
-          : 'text-blue-600'
+          ? textClassName.includes('text-white') ? 'text-slate-300' : 'text-slate-500' 
+          : 'text-slate-500'
       }`}>
-        STRATEGIC CONSULTING
+        S L O G A N &nbsp;&nbsp; T E X T
       </span>
     </div>
   </div>
