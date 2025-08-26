@@ -90,10 +90,10 @@ const Header = () => {
         ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-slate-200/50' 
         : 'bg-slate-900/90 backdrop-blur-sm'
     }`}>
-      <nav className="max-w-7xl mx-auto pl-2 pr-6 sm:pl-4 sm:pr-8 lg:pl-6 lg:pr-10">
+      <nav className="max-w-7xl mx-auto pl-0 pr-6 sm:pl-0 sm:pr-8 lg:pl-0 lg:pr-10">
         <div className="flex justify-between items-center h-24">
-          {/* Logo - moved further left */}
-          <Link href="/" className="flex-shrink-0 -ml-4">
+          {/* Logo - moved much further left */}
+          <Link href="/" className="flex-shrink-0 -ml-8">
             <AxiomLogo 
               className="hover:scale-105 transition-transform duration-300"
               textClassName={isScrolled ? 'text-slate-800' : 'text-white'}
@@ -151,25 +151,25 @@ const Header = () => {
               </div>
             ))}
 
-            {/* CTA Buttons - increased spacing between them */}
-            <div className="flex items-center space-x-8 ml-16">
+            {/* CTA Buttons - much more spacing */}
+            <div className="flex items-center space-x-12 ml-20">
               <Link
                 href="/contact"
-                className={`inline-flex items-center px-5 py-3 rounded-lg font-bold tracking-wide text-sm transition-all duration-200 uppercase ${
+                className={`inline-flex items-center px-6 py-3 rounded-lg font-bold tracking-wide text-sm transition-all duration-200 uppercase whitespace-nowrap ${
                   isScrolled
                     ? 'text-green-700 hover:text-green-800 hover:bg-green-50 border border-green-200'
                     : 'text-green-300 hover:text-white hover:bg-green-600/20 border border-green-400/30'
                 }`}
               >
-                <Heart className="w-4 h-4 mr-2" />
-                Pro Bono
+                <Heart className="w-4 h-4 mr-2 flex-shrink-0" />
+                <span className="whitespace-nowrap">PRO BONO</span>
               </Link>
               <Link
                 href="/contact"
-                className="inline-flex items-center px-7 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:shadow-lg transition-all duration-200 font-bold tracking-wide text-sm hover:scale-105 uppercase"
+                className="inline-flex items-center px-8 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:shadow-lg transition-all duration-200 font-bold tracking-wide text-sm hover:scale-105 uppercase whitespace-nowrap"
               >
-                <Phone className="w-4 h-4 mr-2" />
-                Contact
+                <Phone className="w-4 h-4 mr-2 flex-shrink-0" />
+                <span className="whitespace-nowrap">CONTACT</span>
               </Link>
             </div>
           </div>
@@ -237,7 +237,7 @@ const Header = () => {
                     onClick={() => setIsOpen(false)}
                   >
                     <Heart className="w-4 h-4 mr-2" />
-                    Pro Bono Services
+                    PRO BONO SERVICES
                   </Link>
                   <Link
                     href="/contact"
@@ -245,7 +245,7 @@ const Header = () => {
                     onClick={() => setIsOpen(false)}
                   >
                     <Phone className="w-4 h-4 mr-2" />
-                    Contact Us
+                    CONTACT US
                   </Link>
                 </div>
               </div>
