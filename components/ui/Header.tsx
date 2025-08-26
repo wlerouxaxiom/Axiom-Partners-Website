@@ -11,7 +11,7 @@ const AxiomLogo = ({ className = "", textClassName = "" }) => (
     <span className={`font-bold text-2xl tracking-wide transition-colors group-hover:scale-105 transition-transform duration-300 ${textClassName}`}>
       AXIOM PARTNERS
     </span>
-    <div className="text-xs font-light tracking-widest mt-1">
+    <div className="text-xs font-light tracking-widest mt-2">
       <span className={`transition-colors ${
         textClassName.includes('text-white') || textClassName.includes('text-slate-800') 
           ? textClassName.includes('text-white') ? 'text-slate-300' : 'text-slate-500' 
@@ -90,8 +90,8 @@ const Header = () => {
         ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-slate-200/50' 
         : 'bg-slate-900/90 backdrop-blur-sm'
     }`}>
-      <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex justify-between items-center h-20">
+      <nav className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-10">
+        <div className="flex justify-between items-center h-24">
           {/* Logo */}
           <Link href="/" className="flex-shrink-0">
             <AxiomLogo 
@@ -101,7 +101,7 @@ const Header = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-8">
+          <div className="hidden lg:flex items-center space-x-12">
             {navigation.map((item) => (
               <div
                 key={item.name}
@@ -111,7 +111,7 @@ const Header = () => {
               >
                 <Link
                   href={item.href}
-                  className={`flex items-center space-x-1 px-3 py-2 rounded-lg font-bold tracking-wide text-sm transition-all duration-200 ${
+                  className={`flex items-center space-x-2 px-4 py-3 rounded-lg font-bold tracking-wide text-sm transition-all duration-200 ${
                     isActivePath(item.href)
                       ? isScrolled
                         ? 'text-blue-600 bg-blue-50'
@@ -133,13 +133,13 @@ const Header = () => {
                       animate={{ opacity: 1, y: 0 }}
                       exit={{ opacity: 0, y: 10 }}
                       transition={{ duration: 0.2 }}
-                      className="absolute top-full left-0 mt-2 w-64 bg-white rounded-xl shadow-xl border border-slate-200 py-2 z-50"
+                      className="absolute top-full left-0 mt-3 w-64 bg-white rounded-xl shadow-xl border border-slate-200 py-3 z-50"
                     >
                       {item.dropdown.map((dropdownItem) => (
                         <Link
                           key={dropdownItem.href}
                           href={dropdownItem.href}
-                          className="flex items-center space-x-3 px-4 py-3 text-sm text-slate-700 hover:bg-slate-50 hover:text-blue-600 transition-colors font-medium tracking-wide"
+                          className="flex items-center space-x-3 px-5 py-3 text-sm text-slate-700 hover:bg-slate-50 hover:text-blue-600 transition-colors font-medium tracking-wide"
                         >
                           <dropdownItem.icon className="w-4 h-4" />
                           <span>{dropdownItem.name}</span>
@@ -152,10 +152,10 @@ const Header = () => {
             ))}
 
             {/* CTA Buttons */}
-            <div className="flex items-center space-x-3 ml-8">
+            <div className="flex items-center space-x-4 ml-12">
               <Link
                 href="/contact"
-                className={`inline-flex items-center px-4 py-2 rounded-lg font-bold tracking-wide text-sm transition-all duration-200 uppercase ${
+                className={`inline-flex items-center px-5 py-3 rounded-lg font-bold tracking-wide text-sm transition-all duration-200 uppercase ${
                   isScrolled
                     ? 'text-green-700 hover:text-green-800 hover:bg-green-50 border border-green-200'
                     : 'text-green-300 hover:text-white hover:bg-green-600/20 border border-green-400/30'
@@ -166,7 +166,7 @@ const Header = () => {
               </Link>
               <Link
                 href="/contact"
-                className="inline-flex items-center px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:shadow-lg transition-all duration-200 font-bold tracking-wide text-sm hover:scale-105 uppercase"
+                className="inline-flex items-center px-7 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:shadow-lg transition-all duration-200 font-bold tracking-wide text-sm hover:scale-105 uppercase"
               >
                 <Phone className="w-4 h-4 mr-2" />
                 Contact
@@ -177,7 +177,7 @@ const Header = () => {
           {/* Mobile menu button */}
           <button
             onClick={() => setIsOpen(!isOpen)}
-            className={`lg:hidden p-2 rounded-lg transition-colors ${
+            className={`lg:hidden p-3 rounded-lg transition-colors ${
               isScrolled ? 'text-slate-700 hover:bg-slate-100' : 'text-white hover:bg-white/10'
             }`}
           >
@@ -195,9 +195,9 @@ const Header = () => {
               transition={{ duration: 0.3 }}
               className="lg:hidden bg-white border-t border-slate-200 shadow-lg rounded-b-2xl"
             >
-              <div className="px-4 py-6 space-y-4">
+              <div className="px-6 py-8 space-y-6">
                 {/* Mobile Logo */}
-                <div className="flex justify-center pb-4 border-b border-slate-200">
+                <div className="flex justify-center pb-6 border-b border-slate-200">
                   <AxiomLogo textClassName="text-slate-800" />
                 </div>
 
@@ -205,7 +205,7 @@ const Header = () => {
                   <div key={item.name}>
                     <Link
                       href={item.href}
-                      className={`block px-3 py-2 rounded-lg font-bold tracking-wide text-base transition-colors uppercase ${
+                      className={`block px-4 py-3 rounded-lg font-bold tracking-wide text-base transition-colors uppercase ${
                         isActivePath(item.href)
                           ? 'text-blue-600 bg-blue-50'
                           : 'text-slate-700 hover:text-blue-600 hover:bg-slate-50'
@@ -214,12 +214,12 @@ const Header = () => {
                     >
                       {item.name}
                     </Link>
-                    <div className="ml-4 mt-2 space-y-1">
+                    <div className="ml-6 mt-3 space-y-2">
                       {item.dropdown.map((dropdownItem) => (
                         <Link
                           key={dropdownItem.href}
                           href={dropdownItem.href}
-                          className="flex items-center space-x-3 px-3 py-2 text-sm text-slate-600 hover:text-blue-600 hover:bg-slate-50 rounded-lg transition-colors font-medium tracking-wide"
+                          className="flex items-center space-x-3 px-4 py-3 text-sm text-slate-600 hover:text-blue-600 hover:bg-slate-50 rounded-lg transition-colors font-medium tracking-wide"
                           onClick={() => setIsOpen(false)}
                         >
                           <dropdownItem.icon className="w-4 h-4" />
@@ -230,10 +230,10 @@ const Header = () => {
                   </div>
                 ))}
                 
-                <div className="pt-4 border-t border-slate-200 space-y-3">
+                <div className="pt-6 border-t border-slate-200 space-y-4">
                   <Link
                     href="/contact"
-                    className="flex items-center justify-center px-4 py-3 text-green-700 border border-green-200 rounded-lg hover:bg-green-50 transition-colors font-bold tracking-wide uppercase"
+                    className="flex items-center justify-center px-5 py-4 text-green-700 border border-green-200 rounded-lg hover:bg-green-50 transition-colors font-bold tracking-wide uppercase"
                     onClick={() => setIsOpen(false)}
                   >
                     <Heart className="w-4 h-4 mr-2" />
@@ -241,7 +241,7 @@ const Header = () => {
                   </Link>
                   <Link
                     href="/contact"
-                    className="flex items-center justify-center px-4 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:shadow-lg transition-all duration-200 font-bold tracking-wide uppercase"
+                    className="flex items-center justify-center px-5 py-4 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:shadow-lg transition-all duration-200 font-bold tracking-wide uppercase"
                     onClick={() => setIsOpen(false)}
                   >
                     <Phone className="w-4 h-4 mr-2" />
