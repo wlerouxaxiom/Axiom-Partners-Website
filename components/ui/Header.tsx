@@ -1,10 +1,35 @@
 'use client';
-'use client';
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ChevronDown, Heart, Building, Users, Target, TrendingUp, Cog, Wrench, Factory, GraduationCap, Truck, FileText, Phone } from 'lucide-react';
+
+// Logo Component
+const AxiomLogo = ({ className = "", textClassName = "" }) => (
+  <div className={`flex items-center space-x-3 group ${className}`}>
+    <div className="relative">
+      {/* Main logo circle with gradient */}
+      <div className="w-12 h-12 bg-gradient-to-br from-blue-600 via-purple-600 to-blue-700 rounded-xl flex items-center justify-center group-hover:scale-105 transition-transform duration-300 shadow-lg">
+        <span className="text-white font-bold text-xl tracking-tight">A</span>
+      </div>
+      {/* Subtle glow effect */}
+      <div className="absolute inset-0 w-12 h-12 bg-gradient-to-br from-blue-400 to-purple-400 rounded-xl opacity-20 group-hover:opacity-30 transition-opacity duration-300 blur-sm"></div>
+    </div>
+    <div className="flex flex-col">
+      <span className={`font-bold text-xl tracking-tight transition-colors ${textClassName}`}>
+        Axiom Partners
+      </span>
+      <span className={`text-xs font-semibold tracking-wide transition-colors ${
+        textClassName.includes('text-white') || textClassName.includes('text-slate-800') 
+          ? textClassName.includes('text-white') ? 'text-blue-200' : 'text-blue-600' 
+          : 'text-blue-600'
+      }`}>
+        STRATEGIC CONSULTING
+      </span>
+    </div>
+  </div>
+);
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -69,26 +94,18 @@ const Header = () => {
 
   return (
     <header className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-slate-900/90 backdrop-blur-sm'    }`}>
+      isScrolled 
+        ? 'bg-white/95 backdrop-blur-md shadow-lg border-b border-slate-200/50' 
+        : 'bg-slate-900/90 backdrop-blur-sm'
+    }`}>
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between items-center h-20">
           {/* Logo */}
-          <Link href="/" className="flex items-center space-x-3 group">
-            <div className="w-10 h-10 bg-gradient-to-br from-blue-600 to-purple-600 rounded-xl flex items-center justify-center group-hover:scale-105 transition-transform duration-300">
-              <span className="text-white font-bold text-lg">A</span>
-            </div>
-            <div className="flex flex-col">
-              <span className={`font-bold text-xl transition-colors ${
-                isScrolled ? 'text-slate-800' : 'text-white'
-              }`}>
-                Axiom Partners
-              </span>
-              <span className={`text-xs font-medium transition-colors ${
-                isScrolled ? 'text-blue-600' : 'text-blue-300'
-              }`}>
-                Strategic Consulting
-              </span>
-            </div>
+          <Link href="/" className="flex-shrink-0">
+            <AxiomLogo 
+              className="hover:scale-105 transition-transform duration-300"
+              textClassName={isScrolled ? 'text-slate-800' : 'text-white'}
+            />
           </Link>
 
           {/* Desktop Navigation */}
@@ -157,7 +174,7 @@ isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-slate-900/90 backdro
               </Link>
               <Link
                 href="/contact"
-                className="inline-flex items-center px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:shadow-lg transition-all duration-200 text-sm font-medium"
+                className="inline-flex items-center px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:shadow-lg transition-all duration-200 text-sm font-medium hover:scale-105"
               >
                 <Phone className="w-4 h-4 mr-2" />
                 Contact
@@ -184,9 +201,14 @@ isScrolled ? 'bg-white/95 backdrop-blur-md shadow-lg' : 'bg-slate-900/90 backdro
               animate={{ opacity: 1, height: 'auto' }}
               exit={{ opacity: 0, height: 0 }}
               transition={{ duration: 0.3 }}
-              className="lg:hidden bg-white border-t border-slate-200 shadow-lg"
+              className="lg:hidden bg-white border-t border-slate-200 shadow-lg rounded-b-2xl"
             >
               <div className="px-4 py-6 space-y-4">
+                {/* Mobile Logo */}
+                <div className="flex justify-center pb-4 border-b border-slate-200">
+                  <AxiomLogo textClassName="text-slate-800" />
+                </div>
+
                 {navigation.map((item) => (
                   <div key={item.name}>
                     <Link
