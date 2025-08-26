@@ -111,7 +111,7 @@ const Header = () => {
               >
                 <Link
                   href={item.href}
-                  className={`flex items-center space-x-1 px-3 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                  className={`flex items-center space-x-1 px-3 py-2 rounded-lg font-bold tracking-wide text-sm transition-all duration-200 ${
                     isActivePath(item.href)
                       ? isScrolled
                         ? 'text-blue-600 bg-blue-50'
@@ -121,7 +121,7 @@ const Header = () => {
                         : 'text-slate-200 hover:text-white hover:bg-white/10'
                   }`}
                 >
-                  <span>{item.name}</span>
+                  <span className="uppercase">{item.name}</span>
                   <ChevronDown className="w-4 h-4" />
                 </Link>
 
@@ -139,7 +139,7 @@ const Header = () => {
                         <Link
                           key={dropdownItem.href}
                           href={dropdownItem.href}
-                          className="flex items-center space-x-3 px-4 py-3 text-sm text-slate-700 hover:bg-slate-50 hover:text-blue-600 transition-colors"
+                          className="flex items-center space-x-3 px-4 py-3 text-sm text-slate-700 hover:bg-slate-50 hover:text-blue-600 transition-colors font-medium tracking-wide"
                         >
                           <dropdownItem.icon className="w-4 h-4" />
                           <span>{dropdownItem.name}</span>
@@ -155,7 +155,7 @@ const Header = () => {
             <div className="flex items-center space-x-3 ml-8">
               <Link
                 href="/contact"
-                className={`inline-flex items-center px-4 py-2 rounded-lg text-sm font-medium transition-all duration-200 ${
+                className={`inline-flex items-center px-4 py-2 rounded-lg font-bold tracking-wide text-sm transition-all duration-200 uppercase ${
                   isScrolled
                     ? 'text-green-700 hover:text-green-800 hover:bg-green-50 border border-green-200'
                     : 'text-green-300 hover:text-white hover:bg-green-600/20 border border-green-400/30'
@@ -166,7 +166,7 @@ const Header = () => {
               </Link>
               <Link
                 href="/contact"
-                className="inline-flex items-center px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:shadow-lg transition-all duration-200 text-sm font-medium hover:scale-105"
+                className="inline-flex items-center px-6 py-2 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:shadow-lg transition-all duration-200 font-bold tracking-wide text-sm hover:scale-105 uppercase"
               >
                 <Phone className="w-4 h-4 mr-2" />
                 Contact
@@ -205,7 +205,7 @@ const Header = () => {
                   <div key={item.name}>
                     <Link
                       href={item.href}
-                      className={`block px-3 py-2 rounded-lg text-base font-medium transition-colors ${
+                      className={`block px-3 py-2 rounded-lg font-bold tracking-wide text-base transition-colors uppercase ${
                         isActivePath(item.href)
                           ? 'text-blue-600 bg-blue-50'
                           : 'text-slate-700 hover:text-blue-600 hover:bg-slate-50'
@@ -219,7 +219,7 @@ const Header = () => {
                         <Link
                           key={dropdownItem.href}
                           href={dropdownItem.href}
-                          className="flex items-center space-x-3 px-3 py-2 text-sm text-slate-600 hover:text-blue-600 hover:bg-slate-50 rounded-lg transition-colors"
+                          className="flex items-center space-x-3 px-3 py-2 text-sm text-slate-600 hover:text-blue-600 hover:bg-slate-50 rounded-lg transition-colors font-medium tracking-wide"
                           onClick={() => setIsOpen(false)}
                         >
                           <dropdownItem.icon className="w-4 h-4" />
@@ -233,7 +233,7 @@ const Header = () => {
                 <div className="pt-4 border-t border-slate-200 space-y-3">
                   <Link
                     href="/contact"
-                    className="flex items-center justify-center px-4 py-3 text-green-700 border border-green-200 rounded-lg hover:bg-green-50 transition-colors"
+                    className="flex items-center justify-center px-4 py-3 text-green-700 border border-green-200 rounded-lg hover:bg-green-50 transition-colors font-bold tracking-wide uppercase"
                     onClick={() => setIsOpen(false)}
                   >
                     <Heart className="w-4 h-4 mr-2" />
@@ -241,7 +241,7 @@ const Header = () => {
                   </Link>
                   <Link
                     href="/contact"
-                    className="flex items-center justify-center px-4 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:shadow-lg transition-all duration-200"
+                    className="flex items-center justify-center px-4 py-3 bg-gradient-to-r from-blue-600 to-purple-600 text-white rounded-lg hover:shadow-lg transition-all duration-200 font-bold tracking-wide uppercase"
                     onClick={() => setIsOpen(false)}
                   >
                     <Phone className="w-4 h-4 mr-2" />
