@@ -17,7 +17,7 @@ const AxiomLogo = ({ className = "", textClassName = "" }) => (
           ? textClassName.includes('text-white') ? 'text-slate-300' : 'text-slate-500' 
           : 'text-slate-500'
       }`}>
-        S L O G A N &nbsp;&nbsp; T E X T
+        A U T O M A T I O N - F I R S T &nbsp;&nbsp; C O N S U L T I N G
       </span>
     </div>
   </div>
