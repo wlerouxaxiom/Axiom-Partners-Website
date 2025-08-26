@@ -93,7 +93,7 @@ const Header = () => {
       <nav className="max-w-7xl mx-auto pl-0 pr-6 sm:pl-0 sm:pr-8 lg:pl-0 lg:pr-10">
         <div className="flex justify-between items-center h-24">
           {/* Logo - moved much further left */}
-          <Link href="/" className="flex-shrink-0 -ml-8">
+          <Link href="/" className="flex-shrink-0 -ml-16">
             <AxiomLogo 
               className="hover:scale-105 transition-transform duration-300"
               textClassName={isScrolled ? 'text-slate-800' : 'text-white'}
