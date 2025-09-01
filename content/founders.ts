@@ -23,7 +23,7 @@ export const founders: Founder[] = [
       "Policy Development"
     ],
     education: "University of Waterloo - Accounting & Financial Management",
-    image: "https://media.licdn.com/dms/image/v2/D5603AQHNLmdafDtgEA/profile-displayphoto-scale_400_400/B56ZjDuyErG4Ak-/0/1755630486968?e=1758758400&v=beta&t=bLVX5wBdYxcGIm-D9QBn2nYj_StzQ5treijsFHcCmrY",
+    image: "https://media.licdn.com/dms/image/v2/D5603AQFbapeZ6BO77g/profile-displayphoto-scale_400_400/B56ZjtJU2GHUAg-/0/1756325304218?e=1759363200&v=beta&t=qdH36LZqisdSXxswvJEKn-4gu-uZLV8fVOe8uwLXJOo",
     email: "wleroux@axiompartners.ca"
   },
   {
