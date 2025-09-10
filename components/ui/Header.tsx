@@ -73,8 +73,8 @@ const Header = () => {
       name: 'Insights',
       href: '/insights',
       dropdown: [
-        { name: 'Student Insights', href: '/insights', icon: FileText },
-        { name: 'Featured Articles', href: '/insights/articles', icon: FileText },
+        { name: 'Featured Articles', href: '/insights', icon: FileText },
+        { name: 'All Insights', href: '/insights/articles', icon: FileText },
       ]
     }
   ];
