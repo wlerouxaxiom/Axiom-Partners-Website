@@ -21,63 +21,42 @@ export async function POST(request) {
       );
     }
 
-    // Here you would typically:
-    // 1. Store the email in your database
-    // 2. Add to your email service (Mailchimp, ConvertKit, etc.)
-    // 3. Send a confirmation email
+    // Use your existing EmailJS configuration
+    const serviceId = 'service_9mb27wl';
+    const templateId = 'template_okj37dg'; // You might want to create a separate template for newsletters
+    const publicKey = 'PbuPar3oCKYLGGbSh';
     
-    // Option 1: Simple file storage (for development)
-    // You could store emails in a JSON file or database
-    
-    // Option 2: Integration with email services
-    // Example with Mailchimp API:
-    /*
-    const response = await fetch(`https://us1.api.mailchimp.com/3.0/lists/YOUR_LIST_ID/members`, {
-      method: 'POST',
-      headers: {
-        'Authorization': `Bearer ${process.env.MAILCHIMP_API_KEY}`,
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        email_address: email,
-        status: 'subscribed',
-        tags: ['newsletter', 'insights']
-      }),
-    });
-    */
-
-    // Option 3: Send email using EmailJS or similar service
-    // Example with a simple email notification:
-    /*
-    const emailData = {
-      to_email: process.env.ADMIN_EMAIL,
-      subject: 'New Newsletter Subscription',
-      message: `New subscription from: ${email}`,
-      reply_to: email
+    const templateParams = {
+      from_name: 'Newsletter Subscriber',
+      from_email: email,
+      company: 'Newsletter Subscription',
+      industry: 'Newsletter',
+      service_type: 'Newsletter Subscription',
+      message: `New newsletter subscription request from: ${email}. Please add this email to the newsletter list for article notifications.`,
+      to_email: 'inquiries@axiompartners.ca'
     };
 
-    await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+    // Send email using EmailJS
+    const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
       body: JSON.stringify({
-        service_id: process.env.EMAILJS_SERVICE_ID,
-        template_id: process.env.EMAILJS_TEMPLATE_ID,
-        user_id: process.env.EMAILJS_USER_ID,
-        template_params: emailData
+        service_id: serviceId,
+        template_id: templateId,
+        user_id: publicKey,
+        template_params: templateParams
       })
     });
-    */
 
-    // For now, we'll just log it and return success
-    console.log(`New newsletter subscription: ${email}`);
-    
-    // You might want to store this in a simple way for now:
-    // - Add to a Supabase table
-    // - Store in a Google Sheet
-    // - Send to your existing contact form endpoint
-    
+    if (!response.ok) {
+      throw new Error('EmailJS request failed');
+    }
+
+    const result = await response.text();
+    console.log('Newsletter subscription successful:', result);
+
     return NextResponse.json(
       { message: 'Successfully subscribed to newsletter' },
       { status: 200 }
@@ -86,7 +65,7 @@ export async function POST(request) {
   } catch (error) {
     console.error('Newsletter subscription error:', error);
     return NextResponse.json(
-      { error: 'Internal server error' },
+      { error: 'Failed to subscribe. Please try again later.' },
       { status: 500 }
     );
   }
