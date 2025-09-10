@@ -14,39 +14,13 @@ export default function Articles() {
       readTime: '5 min read',
       category: 'Consulting',
       image: 'https://images.pexels.com/photos/3184291/pexels-photo-3184291.jpeg?auto=compress&cs=tinysrgb&w=600',
-      // Add actual links here - replace with real URLs when you publish articles
       url: 'https://medium.com/@wleroux_24242/next-gen-consulting-a-student-perspective-0939b0733305',
-      isExternal: true
-    },
-    {
-      title: 'Financial Analysis for Small Business Growth',
-      excerpt: 'Practical frameworks for SMEs to leverage financial data for strategic decision-making and sustainable growth in competitive markets.',
-      author: 'Wyatt Leroux',
-      date: 'January 10, 2025',
-      readTime: '4 min read',
-      category: 'Finance',
-      image: 'https://images.pexels.com/photos/1267338/pexels-photo-1267338.jpeg?auto=compress&cs=tinysrgb&w=600',
-      url: 'https://linkedin.com/pulse/financial-analysis-small-business-wyatt-leroux',
-      isExternal: true
-    },
-    {
-      title: 'Process Automation in Professional Services',
-      excerpt: 'Lessons learned from implementing automation solutions at Big 4 consulting firms and how smaller firms can adopt similar efficiencies.',
-      author: 'Roisin Djukic',
-      date: 'January 5, 2025',
-      readTime: '6 min read',
-      category: 'Operations',
-      image: 'https://images.pexels.com/photos/3184360/pexels-photo-3184360.jpeg?auto=compress&cs=tinysrgb&w=600',
-      url: 'https://medium.com/@roisindjukic/process-automation-professional-services',
       isExternal: true
     }
   ];
 
   const categoryColors = {
     'Consulting': 'bg-blue-100 text-blue-800',
-    'Finance': 'bg-green-100 text-green-800',
-    'Operations': 'bg-purple-100 text-purple-800',
-    'Strategy': 'bg-orange-100 text-orange-800'
   };
 
   return (
@@ -124,31 +98,45 @@ export default function Articles() {
                         <Calendar className="w-4 h-4 mr-1" />
                         <span>{article.date}</span>
                       </div>
-                      {article.isExternal ? (
-                        <a 
-                          href={article.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium group/link"
-                        >
-                          Read Article
-                          <ExternalLink className="ml-1 w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
-                        </a>
-                      ) : (
-                        <Link 
-                          href={article.url}
-                          className="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium group/link"
-                        >
-                          Read Article
-                          <ArrowRight className="ml-1 w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
-                        </Link>
-                      )}
+                      <a 
+                        href={article.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="inline-flex items-center text-blue-600 hover:text-blue-700 font-medium group/link"
+                      >
+                        Read Article
+                        <ExternalLink className="ml-1 w-4 h-4 group-hover/link:translate-x-1 transition-transform" />
+                      </a>
                     </div>
                   </div>
                 </article>
               </motion.div>
             ))}
           </div>
+
+          {/* Coming Soon Message */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            viewport={{ once: true }}
+            className="text-center mt-16"
+          >
+            <div className="bg-slate-50 rounded-2xl p-12">
+              <h3 className="text-2xl font-bold text-slate-800 mb-4">More Articles Coming Soon</h3>
+              <p className="text-lg text-slate-600 mb-6 max-w-2xl mx-auto">
+                We're actively working on new insights covering manufacturing efficiency, 
+                non-profit management, financial analysis, and innovative consulting methodologies.
+              </p>
+              <Link 
+                href="/contact"
+                className="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors group"
+              >
+                Get Notified of New Articles
+                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+              </Link>
+            </div>
+          </motion.div>
         </div>
       </section>
 
