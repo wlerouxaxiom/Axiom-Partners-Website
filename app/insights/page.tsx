@@ -3,6 +3,7 @@ import React from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
 import { ArrowRight, Calendar, User, ExternalLink } from 'lucide-react';
+import NewsletterSubscription from '@/components/NewsletterSubscription'; // Adjust path as needed
 
 export default function Insights() {
   const featuredArticle = {
@@ -103,7 +104,7 @@ export default function Insights() {
         </div>
       </section>
 
-      {/* Coming Soon Section */}
+      {/* Newsletter Subscription Section */}
       <section className="py-20 bg-slate-50">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -111,7 +112,7 @@ export default function Insights() {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="text-center"
+            className="text-center mb-12"
           >
             <h2 className="text-4xl font-bold text-slate-800 mb-6">More Insights Coming Soon</h2>
             <p className="text-xl text-slate-600 mb-12 max-w-3xl mx-auto">
@@ -120,19 +121,7 @@ export default function Insights() {
               covering manufacturing efficiency, non-profit management, and innovative consulting methodologies.
             </p>
             
-            <div className="bg-white rounded-2xl p-8 shadow-lg max-w-2xl mx-auto">
-              <h3 className="text-2xl font-bold text-slate-800 mb-4">Get Notified</h3>
-              <p className="text-slate-600 mb-6">
-                Be the first to know when we publish new insights and perspectives
-              </p>
-              <Link 
-                href="/contact"
-                className="inline-flex items-center px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors group"
-              >
-                Subscribe for Updates
-                <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
-              </Link>
-            </div>
+            <NewsletterSubscription />
           </motion.div>
         </div>
       </section>
