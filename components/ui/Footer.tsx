@@ -100,22 +100,6 @@ export default function Footer() {
                   Leadership
                 </Link>
               </li>
-              <li>
-                <Link 
-                  href="/about/mission" 
-                  className="text-sm text-slate-400 hover:text-white transition-colors"
-                >
-                  Mission & Values
-                </Link>
-              </li>
-              <li>
-                <Link 
-                  href="/about/history" 
-                  className="text-sm text-slate-400 hover:text-white transition-colors"
-                >
-                  Our Story
-                </Link>
-              </li>
             </ul>
           </div>
 
