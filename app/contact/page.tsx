@@ -1,21 +1,18 @@
 'use client';
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Mail, Phone, MapPin, Send, CheckCircle, Heart, Building, Factory, GraduationCap, Truck, AlertCircle } from 'lucide-react';
+import { Mail, Phone, MapPin, Send, CheckCircle, AlertCircle } from 'lucide-react';
 
 export default function Contact() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     company: '',
-    industry: '',
-    serviceType: 'general',
     message: ''
   });
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState('');
-  const [activeForm, setActiveForm] = useState('general');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -24,21 +21,18 @@ export default function Contact() {
     
     try {
       // EmailJS configuration
-      const serviceId = 'service_9mb27wl'; // You'll get this from EmailJS
-      const templateId = 'template_okj37dg'; // You'll get this from EmailJS
-      const publicKey = 'PbuPar3oCKYLGGbSh'; // You'll get this from EmailJS
+      const serviceId = 'service_9mb27wl';
+      const templateId = 'template_okj37dg';
+      const publicKey = 'PbuPar3oCKYLGGbSh';
       
       const templateParams = {
         from_name: formData.name,
         from_email: formData.email,
         company: formData.company || 'Not specified',
-        industry: formData.industry || 'Not specified',
-        service_type: activeForm === 'probono' ? 'Pro Bono Services' : 'General Consulting',
         message: formData.message,
         to_email: 'inquiries@axiompartners.ca'
       };
 
-      // Import EmailJS dynamically
       const emailjs = await import('@emailjs/browser');
       
       const response = await emailjs.send(
@@ -54,8 +48,6 @@ export default function Contact() {
           name: '',
           email: '',
           company: '',
-          industry: '',
-          serviceType: 'general',
           message: ''
         });
         setTimeout(() => setIsSubmitted(false), 5000);
@@ -68,143 +60,90 @@ export default function Contact() {
     }
   };
 
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value
     });
   };
 
-  const industries = [
-    { value: 'manufacturing', label: 'Manufacturing', icon: Factory },
-    { value: 'non-profit', label: 'Non-Profit', icon: Heart },
-    { value: 'education', label: 'Education', icon: GraduationCap },
-    { value: 'logistics', label: 'Logistics & 3PL', icon: Truck },
-    { value: 'other', label: 'Other', icon: Building }
-  ];
-
   return (
-    <div className="pt-20">
+    <div className="min-h-screen bg-[#0B0F1A]">
       {/* Hero Section */}
-      <section className="py-20 bg-gradient-to-br from-slate-900 to-blue-900">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative pt-32 pb-20 overflow-hidden">
+        <div className="absolute inset-0">
+          <div className="absolute top-1/4 right-1/4 w-[500px] h-[500px] bg-blue-500/10 rounded-full blur-[120px]" />
+        </div>
+
+        <div className="relative z-10 max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            className="text-center text-white"
+            transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
+            className="text-center"
           >
-            <h1 className="text-5xl md:text-6xl font-bold mb-6">
-              Get In <span className="text-blue-400">Touch</span>
+            <div className="inline-block mb-6">
+              <span className="px-4 py-1.5 text-xs tracking-[0.3em] text-slate-400 border border-slate-700/50 rounded-full">
+                GET IN TOUCH
+              </span>
+            </div>
+            <h1 
+              className="text-5xl sm:text-6xl lg:text-7xl font-light text-white mb-8 leading-tight"
+              style={{ fontFamily: "'Cormorant Garamond', serif" }}
+            >
+              Start a <span className="italic">Conversation</span>
             </h1>
-            <p className="text-xl text-slate-300 max-w-3xl mx-auto leading-relaxed">
-              Ready to transform your organization? Let's discuss how Axiom Partners can help 
-              you achieve strategic excellence. We offer both professional consulting services 
-              and pro bono support for qualifying organizations.
+            <p className="text-xl text-slate-400 max-w-3xl mx-auto leading-relaxed">
+              Ready to transform your organization? Let's discuss how Axiom Partners 
+              can help you achieve strategic excellence.
             </p>
           </motion.div>
         </div>
       </section>
 
-      {/* Service Type Selection */}
-      <section className="py-12 bg-slate-50">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="text-center mb-8"
-          >
-            <h2 className="text-2xl font-bold text-slate-800 mb-4">Choose Your Service Type</h2>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <button
-                onClick={() => setActiveForm('general')}
-                className={`px-6 py-3 rounded-lg font-semibold transition-all ${
-                  activeForm === 'general'
-                    ? 'bg-blue-600 text-white shadow-lg'
-                    : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'
-                }`}
-              >
-                General Consulting Inquiry
-              </button>
-              <button
-                onClick={() => setActiveForm('probono')}
-                className={`px-6 py-3 rounded-lg font-semibold transition-all flex items-center ${
-                  activeForm === 'probono'
-                    ? 'bg-gradient-to-r from-green-600 to-emerald-600 text-white shadow-lg'
-                    : 'bg-white text-slate-700 hover:bg-slate-100 border border-slate-200'
-                }`}
-              >
-                <Heart className="w-4 h-4 mr-2" />
-                Pro Bono Services
-              </button>
-            </div>
-          </motion.div>
-        </div>
-      </section>
-
       {/* Contact Form & Info */}
-      <section className="py-20 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative py-20">
+        <div className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-16">
             {/* Contact Form */}
             <motion.div
               initial={{ opacity: 0, x: -30 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8, ease: [0.22, 1, 0.36, 1] }}
             >
-              <h2 className="text-3xl font-bold text-slate-800 mb-8">
-                {activeForm === 'probono' ? 'Pro Bono Services Application' : 'Send Us a Message'}
+              <h2 
+                className="text-3xl sm:text-4xl font-light text-white mb-8"
+                style={{ fontFamily: "'Cormorant Garamond', serif" }}
+              >
+                Send Us a <span className="italic">Message</span>
               </h2>
-              
-              {activeForm === 'probono' && (
-                <div className="bg-gradient-to-r from-green-50 to-emerald-50 border border-green-200 rounded-xl p-6 mb-8">
-                  <h3 className="text-lg font-semibold text-green-800 mb-3 flex items-center">
-                    <Heart className="w-5 h-5 mr-2" />
-                    Pro Bono Qualification Criteria
-                  </h3>
-                  <ul className="text-green-700 space-y-2 text-sm">
-                    <li>• Non-profit organizations and community groups</li>
-                    <li>• Small businesses (under 50 employees) in underserved communities</li>
-                    <li>• Educational institutions and student organizations</li>
-                    <li>• Local community development initiatives</li>
-                    <li>• Organizations with limited consulting budgets</li>
-                  </ul>
-                </div>
-              )}
 
               {/* Error Message */}
               {submitError && (
-                <div className="bg-red-50 border border-red-200 rounded-xl p-4 mb-6">
-                  <div className="flex items-center">
-                    <AlertCircle className="w-5 h-5 text-red-600 mr-2" />
-                    <p className="text-red-700">{submitError}</p>
+                <div className="mb-6 p-4 bg-red-500/10 border border-red-500/30 rounded-lg">
+                  <div className="flex items-center gap-2 text-red-400">
+                    <AlertCircle className="w-5 h-5" />
+                    <p>{submitError}</p>
                   </div>
                 </div>
               )}
 
               {/* Success Message */}
               {isSubmitted && (
-                <div className="bg-green-50 border border-green-200 rounded-xl p-6 mb-8">
-                  <div className="flex items-center mb-2">
-                    <CheckCircle className="w-6 h-6 text-green-600 mr-2" />
-                    <h3 className="text-lg font-semibold text-green-800">
-                      {activeForm === 'probono' ? 'Application Submitted!' : 'Message Sent!'}
-                    </h3>
+                <div className="mb-6 p-4 bg-green-500/10 border border-green-500/30 rounded-lg">
+                  <div className="flex items-center gap-2 text-green-400">
+                    <CheckCircle className="w-5 h-5" />
+                    <p>Message sent! We'll respond within 24 hours.</p>
                   </div>
-                  <p className="text-green-700">
-                    Thank you for contacting us. We'll respond within 24 hours.
-                  </p>
                 </div>
               )}
               
               <form onSubmit={handleSubmit} className="space-y-6">
                 <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
                   <div>
-                    <label htmlFor="name" className="block text-sm font-medium text-slate-700 mb-2">
-                      Full Name
+                    <label htmlFor="name" className="block text-sm text-slate-400 mb-2">
+                      Full Name *
                     </label>
                     <input
                       type="text"
@@ -213,13 +152,13 @@ export default function Contact() {
                       value={formData.name}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                       placeholder="Your name"
                     />
                   </div>
                   <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-slate-700 mb-2">
-                      Email Address
+                    <label htmlFor="email" className="block text-sm text-slate-400 mb-2">
+                      Email Address *
                     </label>
                     <input
                       type="email"
@@ -228,16 +167,15 @@ export default function Contact() {
                       value={formData.email}
                       onChange={handleChange}
                       required
-                      className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                      className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
                       placeholder="your@email.com"
                     />
                   </div>
                 </div>
                 
                 <div>
-                  <label htmlFor="company" className="text-sm font-medium text-slate-700 mb-2 flex items-center">
-                    {activeForm === 'probono' ? 'Organization Name' : 'Company/Organization'}
-                    {activeForm === 'probono' && <span className="text-red-500 ml-1">*</span>}
+                  <label htmlFor="company" className="block text-sm text-slate-400 mb-2">
+                    Company/Organization
                   </label>
                   <input
                     type="text"
@@ -245,35 +183,14 @@ export default function Contact() {
                     name="company"
                     value={formData.company}
                     onChange={handleChange}
-                    required={activeForm === 'probono'}
-                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-                    placeholder={activeForm === 'probono' ? 'Your organization name' : 'Your organization'}
+                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
+                    placeholder="Your organization"
                   />
-                </div>
-
-                <div>
-                  <label htmlFor="industry" className="block text-sm font-medium text-slate-700 mb-2">
-                    Industry/Sector
-                  </label>
-                  <select
-                    id="industry"
-                    name="industry"
-                    value={formData.industry}
-                    onChange={handleChange}
-                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all"
-                  >
-                    <option value="">Select your industry</option>
-                    {industries.map((industry) => (
-                      <option key={industry.value} value={industry.value}>
-                        {industry.label}
-                      </option>
-                    ))}
-                  </select>
                 </div>
                 
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-slate-700 mb-2">
-                    {activeForm === 'probono' ? 'Project Description & Community Impact' : 'Message'}
+                  <label htmlFor="message" className="block text-sm text-slate-400 mb-2">
+                    Message *
                   </label>
                   <textarea
                     id="message"
@@ -282,45 +199,31 @@ export default function Contact() {
                     onChange={handleChange}
                     required
                     rows={6}
-                    className="w-full px-4 py-3 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all resize-none"
-                    placeholder={
-                      activeForm === 'probono' 
-                        ? 'Describe your project, community impact goals, and how pro bono consulting would help your organization...'
-                        : 'Tell us about your project or challenge...'
-                    }
+                    className="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-lg text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all resize-none"
+                    placeholder="Tell us about your project or challenge..."
                   />
                 </div>
 
-                <motion.button
+                <button
                   type="submit"
-                  whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
-                  whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
-                  className={`w-full px-8 py-4 rounded-lg transition-colors font-semibold flex items-center justify-center group ${
-                    activeForm === 'probono'
-                      ? 'bg-gradient-to-r from-green-600 to-emerald-600 hover:from-green-700 hover:to-emerald-700 text-white'
-                      : 'bg-blue-600 hover:bg-blue-700 text-white'
-                  } ${isSubmitting ? 'opacity-75 cursor-not-allowed' : ''}`}
+                  className={`w-full px-8 py-4 bg-blue-600 hover:bg-blue-700 text-white rounded-lg transition-all duration-300 font-medium flex items-center justify-center gap-2 ${
+                    isSubmitting ? 'opacity-75 cursor-not-allowed' : ''
+                  }`}
                   disabled={isSubmitting}
+                  style={{ fontFamily: "'IBM Plex Sans', sans-serif" }}
                 >
                   {isSubmitting ? (
                     <>
-                      <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin mr-2"></div>
+                      <div className="w-5 h-5 border-2 border-white border-t-transparent rounded-full animate-spin"></div>
                       Sending...
                     </>
                   ) : (
                     <>
-                      {activeForm === 'probono' ? (
-                        <>
-                          <Heart className="w-5 h-5 mr-2" />
-                          Submit Pro Bono Application
-                        </>
-                      ) : (
-                        'Send Message'
-                      )}
-                      <Send className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
+                      Send Message
+                      <Send className="w-5 h-5" />
                     </>
                   )}
-                </motion.button>
+                </button>
               </form>
             </motion.div>
 
@@ -328,83 +231,81 @@ export default function Contact() {
             <motion.div
               initial={{ opacity: 0, x: 30 }}
               whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.8, delay: 0.2 }}
-              viewport={{ once: true }}
+              viewport={{ once: true, margin: "-100px" }}
+              transition={{ duration: 0.8, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
               className="space-y-8"
             >
-              <h2 className="text-3xl font-bold text-slate-800">Contact Information</h2>
+              <h2 
+                className="text-3xl sm:text-4xl font-light text-white"
+                style={{ fontFamily: "'Cormorant Garamond', serif" }}
+              >
+                Contact <span className="italic">Information</span>
+              </h2>
               
               <div className="space-y-6">
-                <motion.div 
-                  whileHover={{ x: 4 }}
-                  className="flex items-start space-x-4 p-6 bg-slate-50 rounded-2xl"
-                >
-                  <Mail className="w-6 h-6 text-blue-600 mt-1" />
-                  <div>
-                    <h3 className="font-semibold text-slate-800 mb-1">Email</h3>
-                    <p className="text-slate-600">inquiries@axiompartners.ca</p>
-                    <p className="text-slate-500 text-sm mt-1">We typically respond within 24 hours</p>
+                <div className="p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg hover:border-white/20 transition-all duration-300">
+                  <div className="flex items-start gap-4">
+                    <Mail className="w-6 h-6 text-blue-400 mt-1 flex-shrink-0" />
+                    <div>
+                      <h3 className="text-white font-medium mb-1">Email</h3>
+                      <a href="mailto:inquiries@axiompartners.ca" className="text-slate-400 hover:text-white transition-colors">
+                        inquiries@axiompartners.ca
+                      </a>
+                      <p className="text-slate-500 text-sm mt-1">We typically respond within 24 hours</p>
+                    </div>
                   </div>
-                </motion.div>
+                </div>
 
-                <motion.div 
-                  whileHover={{ x: 4 }}
-                  className="flex items-start space-x-4 p-6 bg-slate-50 rounded-2xl"
-                >
-                  <Phone className="w-6 h-6 text-blue-600 mt-1" />
-                  <div>
-                    <h3 className="font-semibold text-slate-800 mb-1">Phone</h3>
-                    <p className="text-slate-600">+1 (289) 400-5213</p>
-                    <p className="text-slate-500 text-sm mt-1">Monday - Friday, 9:00 AM - 6:00 PM EST</p>
+                <div className="p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg hover:border-white/20 transition-all duration-300">
+                  <div className="flex items-start gap-4">
+                    <Phone className="w-6 h-6 text-blue-400 mt-1 flex-shrink-0" />
+                    <div>
+                      <h3 className="text-white font-medium mb-1">Phone</h3>
+                      <a href="tel:+12894005213" className="text-slate-400 hover:text-white transition-colors">
+                        +1 (289) 400-5213
+                      </a>
+                      <p className="text-slate-500 text-sm mt-1">Monday - Friday, 9:00 AM - 6:00 PM EST</p>
+                    </div>
                   </div>
-                </motion.div>
+                </div>
 
-                <motion.div 
-                  whileHover={{ x: 4 }}
-                  className="flex items-start space-x-4 p-6 bg-slate-50 rounded-2xl"
-                >
-                  <MapPin className="w-6 h-6 text-blue-600 mt-1" />
-                  <div>
-                    <h3 className="font-semibold text-slate-800 mb-1">Location</h3>
-                    <p className="text-slate-600">Waterloo, Ontario</p>
-                    <p className="text-slate-500 text-sm mt-1">Serving clients across North America</p>
+                <div className="p-6 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg hover:border-white/20 transition-all duration-300">
+                  <div className="flex items-start gap-4">
+                    <MapPin className="w-6 h-6 text-blue-400 mt-1 flex-shrink-0" />
+                    <div>
+                      <h3 className="text-white font-medium mb-1">Location</h3>
+                      <p className="text-slate-400">Waterloo, Ontario, Canada</p>
+                      <p className="text-slate-500 text-sm mt-1">Serving clients across North America</p>
+                    </div>
                   </div>
-                </motion.div>
-              </div>
-
-              {/* Pro Bono Information */}
-              <div className="bg-gradient-to-r from-green-50 to-emerald-50 rounded-2xl p-8 border border-green-200">
-                <h3 className="text-xl font-bold text-slate-800 mb-4 flex items-center">
-                  <Heart className="w-6 h-6 text-green-600 mr-2" />
-                  Pro Bono Services
-                </h3>
-                <p className="text-slate-600 mb-4">
-                  We're committed to supporting our community through pro bono consulting services 
-                  for qualifying non-profits, small businesses, and educational organizations.
-                </p>
-                <div className="text-sm text-green-700">
-                  <p className="font-medium mb-2">Typical pro bono projects include:</p>
-                  <ul className="space-y-1">
-                    <li>• Strategic planning for non-profits</li>
-                    <li>• Process optimization for small businesses</li>
-                    <li>• Financial analysis and budgeting support</li>
-                    <li>• Community development initiatives</li>
-                  </ul>
                 </div>
               </div>
-              {/* Direct Contact */}
-              <div className="bg-gradient-to-r from-blue-50 to-purple-50 rounded-2xl p-8">
-                <h3 className="text-xl font-bold text-slate-800 mb-4">Reach Our Founders Directly</h3>
+
+              {/* Direct Contact with Founders */}
+              <div className="p-8 bg-white/5 backdrop-blur-sm border border-white/10 rounded-lg">
+                <h3 
+                  className="text-2xl font-light text-white mb-6"
+                  style={{ fontFamily: "'Cormorant Garamond', serif" }}
+                >
+                  Reach Our <span className="italic">Founders</span>
+                </h3>
                 <div className="space-y-4">
-                  <div className="flex items-center justify-between">
-                    <span className="text-slate-700">Wyatt Leroux</span>
-                    <a href="mailto:wleroux@axiompartners.ca" className="text-blue-600 hover:text-blue-700 font-medium">
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                    <span className="text-slate-400">Wyatt Leroux</span>
+                    <a 
+                      href="mailto:wleroux@axiompartners.ca" 
+                      className="text-blue-400 hover:text-blue-300 transition-colors text-sm"
+                    >
                       wleroux@axiompartners.ca
                     </a>
                   </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-slate-700">Roisin Djukic</span>
-                    <a href="mailto:rdjukic@axiompartners.ca" className="text-blue-600 hover:text-blue-700 font-medium">
+                  <div className="h-px bg-white/10"></div>
+                  <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                    <span className="text-slate-400">Roisin Djukic</span>
+                    <a 
+                      href="mailto:rdjukic@axiompartners.ca" 
+                      className="text-blue-400 hover:text-blue-300 transition-colors text-sm"
+                    >
                       rdjukic@axiompartners.ca
                     </a>
                   </div>
