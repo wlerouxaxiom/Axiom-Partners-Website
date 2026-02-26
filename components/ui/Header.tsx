@@ -23,6 +23,21 @@ const AxiomLogo = ({ className = "", textClassName = "" }) => (
   </div>
 );
 
+// Each nav item's dropdown descriptors
+const dropdownMeta: Record<string, { description: string }[]> = {
+  About: [
+    { description: "Our story, values, and what sets us apart" },
+    { description: "The people driving Axiom's vision forward" },
+  ],
+  Capabilities: [
+    { description: "Long-term roadmaps and transformation strategy" },
+    { description: "Process design, efficiency, and execution" },
+  ],
+  Insights: [
+    { description: "Research, perspectives, and industry analysis" },
+  ],
+};
+
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState<string | null>(null);
@@ -76,6 +91,7 @@ const Header = () => {
     }`}>
       <nav className="max-w-7xl mx-auto px-6 sm:px-8 lg:px-12">
         <div className="flex justify-between items-center h-20">
+
           {/* Logo */}
           <Link href="/" className="flex-shrink-0">
             <AxiomLogo 
@@ -85,7 +101,7 @@ const Header = () => {
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden lg:flex items-center space-x-8">
+          <div className="hidden lg:flex items-center space-x-2">
             {navigation.map((item) => (
               <div
                 key={item.name}
@@ -94,38 +110,75 @@ const Header = () => {
                 onMouseLeave={() => setActiveDropdown(null)}
               >
                 <button
-                  className={`flex items-center space-x-1 px-4 py-2 text-sm font-medium tracking-wide transition-all duration-200 ${
+                  className={`flex items-center gap-1.5 px-4 py-2 text-sm font-medium tracking-widest transition-all duration-200 rounded-sm ${
                     isActivePath(item.href)
                       ? 'text-white'
-                      : 'text-slate-300 hover:text-white'
+                      : 'text-slate-400 hover:text-white'
                   }`}
                   style={{ fontFamily: "'IBM Plex Sans', sans-serif" }}
                 >
                   <span className="uppercase">{item.name}</span>
-                  <ChevronDown className="w-4 h-4" />
+                  <motion.div
+                    animate={{ rotate: activeDropdown === item.name ? 180 : 0 }}
+                    transition={{ duration: 0.2 }}
+                  >
+                    <ChevronDown className="w-3.5 h-3.5" />
+                  </motion.div>
                 </button>
 
-                {/* Dropdown Menu - Dark aesthetic */}
+                {/* ── Premium Dropdown ── */}
                 <AnimatePresence>
                   {activeDropdown === item.name && (
                     <motion.div
-                      initial={{ opacity: 0, y: 10 }}
-                      animate={{ opacity: 1, y: 0 }}
-                      exit={{ opacity: 0, y: 10 }}
-                      transition={{ duration: 0.2 }}
-                      className="absolute top-full left-0 mt-4 w-56 bg-[#111633] border border-white/10 rounded-lg shadow-2xl py-2 z-50"
+                      initial={{ opacity: 0, y: 6, scale: 0.98 }}
+                      animate={{ opacity: 1, y: 0, scale: 1 }}
+                      exit={{ opacity: 0, y: 6, scale: 0.98 }}
+                      transition={{ duration: 0.18, ease: 'easeOut' }}
+                      className="absolute top-full left-1/2 -translate-x-1/2 mt-3 z-50"
+                      style={{ minWidth: '260px' }}
                     >
-                      {item.dropdown.map((dropdownItem) => (
-                        <Link
-                          key={dropdownItem.href}
-                          href={dropdownItem.href}
-                          className="flex items-center space-x-3 px-4 py-3 text-sm text-slate-300 hover:text-white hover:bg-white/5 transition-colors"
-                          style={{ fontFamily: "'IBM Plex Sans', sans-serif" }}
-                        >
-                          <dropdownItem.icon className="w-4 h-4" />
-                          <span>{dropdownItem.name}</span>
-                        </Link>
-                      ))}
+                      {/* Arrow pointer */}
+                      <div className="flex justify-center mb-0">
+                        <div className="w-3 h-3 bg-[#0e1428] border-l border-t border-white/10 rotate-45 -mb-1.5 z-10 relative" />
+                      </div>
+
+                      {/* Panel */}
+                      <div className="bg-[#0e1428] border border-white/[0.08] rounded-xl shadow-[0_24px_60px_rgba(0,0,0,0.6)] overflow-hidden">
+                        {/* Top accent line */}
+                        <div className="h-[2px] bg-gradient-to-r from-transparent via-blue-500/60 to-transparent" />
+
+                        <div className="p-2">
+                          {item.dropdown.map((dropdownItem, idx) => {
+                            const meta = dropdownMeta[item.name]?.[idx];
+                            const Icon = dropdownItem.icon;
+                            return (
+                              <Link
+                                key={dropdownItem.href}
+                                href={dropdownItem.href}
+                                className="group flex items-start gap-4 px-4 py-3.5 rounded-lg hover:bg-white/[0.05] transition-all duration-150"
+                                style={{ fontFamily: "'IBM Plex Sans', sans-serif" }}
+                              >
+                                {/* Icon container */}
+                                <div className="mt-0.5 flex-shrink-0 w-8 h-8 rounded-md bg-blue-600/10 border border-blue-500/20 flex items-center justify-center group-hover:bg-blue-600/20 group-hover:border-blue-500/40 transition-all duration-150">
+                                  <Icon className="w-4 h-4 text-blue-400" />
+                                </div>
+
+                                {/* Text */}
+                                <div>
+                                  <div className="text-sm font-medium text-slate-200 group-hover:text-white transition-colors tracking-wide">
+                                    {dropdownItem.name}
+                                  </div>
+                                  {meta?.description && (
+                                    <div className="text-xs text-slate-500 group-hover:text-slate-400 mt-0.5 leading-relaxed transition-colors">
+                                      {meta.description}
+                                    </div>
+                                  )}
+                                </div>
+                              </Link>
+                            );
+                          })}
+                        </div>
+                      </div>
                     </motion.div>
                   )}
                 </AnimatePresence>
@@ -135,10 +188,10 @@ const Header = () => {
             {/* Contact Button */}
             <Link
               href="/contact"
-              className="px-6 py-2.5 bg-blue-600 hover:bg-blue-700 text-white text-sm tracking-wide rounded transition-all duration-300"
+              className="ml-4 px-6 py-2.5 bg-blue-600 hover:bg-blue-500 text-white text-xs tracking-[0.15em] font-semibold rounded-lg transition-all duration-200 uppercase shadow-[0_0_20px_rgba(37,99,235,0.3)] hover:shadow-[0_0_28px_rgba(37,99,235,0.5)]"
               style={{ fontFamily: "'IBM Plex Sans', sans-serif" }}
             >
-              CONTACT
+              Contact
             </Link>
           </div>
 
@@ -164,35 +217,46 @@ const Header = () => {
               <div className="space-y-6">
                 {navigation.map((item) => (
                   <div key={item.name}>
-                    <div className="text-xs tracking-[0.2em] text-slate-500 mb-2 px-2 uppercase">
+                    <div className="text-[10px] tracking-[0.25em] text-slate-500 mb-2 px-2 uppercase font-semibold">
                       {item.name}
                     </div>
                     <div className="space-y-1">
-                      {item.dropdown.map((dropdownItem) => (
-                        <Link
-                          key={dropdownItem.href}
-                          href={dropdownItem.href}
-                          className="flex items-center space-x-3 px-2 py-2 text-sm text-slate-300 hover:text-white transition-colors"
-                          style={{ fontFamily: "'IBM Plex Sans', sans-serif" }}
-                          onClick={() => setIsOpen(false)}
-                        >
-                          <dropdownItem.icon className="w-4 h-4" />
-                          <span>{dropdownItem.name}</span>
-                        </Link>
-                      ))}
+                      {item.dropdown.map((dropdownItem, idx) => {
+                        const meta = dropdownMeta[item.name]?.[idx];
+                        const Icon = dropdownItem.icon;
+                        return (
+                          <Link
+                            key={dropdownItem.href}
+                            href={dropdownItem.href}
+                            className="flex items-start gap-3 px-3 py-3 rounded-lg hover:bg-white/5 transition-colors"
+                            style={{ fontFamily: "'IBM Plex Sans', sans-serif" }}
+                            onClick={() => setIsOpen(false)}
+                          >
+                            <div className="mt-0.5 w-7 h-7 rounded-md bg-blue-600/10 border border-blue-500/20 flex items-center justify-center flex-shrink-0">
+                              <Icon className="w-3.5 h-3.5 text-blue-400" />
+                            </div>
+                            <div>
+                              <div className="text-sm text-slate-200 font-medium">{dropdownItem.name}</div>
+                              {meta?.description && (
+                                <div className="text-xs text-slate-500 mt-0.5">{meta.description}</div>
+                              )}
+                            </div>
+                          </Link>
+                        );
+                      })}
                     </div>
                   </div>
                 ))}
                 
-                <div className="pt-4">
+                <div className="pt-2">
                   <Link
                     href="/contact"
-                    className="flex items-center justify-center px-6 py-3 bg-blue-600 hover:bg-blue-700 text-white rounded transition-all duration-200 font-medium tracking-wide uppercase"
+                    className="flex items-center justify-center gap-2 px-6 py-3 bg-blue-600 hover:bg-blue-500 text-white rounded-lg transition-all duration-200 text-sm font-semibold tracking-widest uppercase"
                     style={{ fontFamily: "'IBM Plex Sans', sans-serif" }}
                     onClick={() => setIsOpen(false)}
                   >
-                    <Phone className="w-4 h-4 mr-2" />
-                    CONTACT
+                    <Phone className="w-4 h-4" />
+                    Contact
                   </Link>
                 </div>
               </div>
