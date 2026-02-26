@@ -26,7 +26,7 @@ export default function Leadership() {
     {
       name: 'Roisin Djukic',
       title: 'Co-Founder & Partner',
-      image: 'https://media.licdn.com/dms/image/v2/D4E03AQG76qWmrB_-fQ/profile-displayphoto-shrink_400_400/B4EZcNsIzwHQAk-/0/1748281364134?e=1770249600&v=beta&t=MtzRW5cJM58Gaql-pTvLqlX37S5osDwU_ltKqTsW_Fc',
+      image: 'https://media.licdn.com/dms/image/v2/D4E03AQG76qWmrB_-fQ/profile-displayphoto-shrink_200_200/B4EZcNsIzwHQAc-/0/1748281364134?e=1773878400&v=beta&t=Iw-EZHETVDMUb-W0Ko3s14ZHYlWmeeTdPEB_PgvowU4',
       education: 'Bachelor of Accounting and Financial Management, University of Waterloo (Expected 2027)',
       email: 'rdjukic@axiompartners.ca',
       linkedin: 'https://www.linkedin.com/in/roisin-djukic-400b9a356/',
