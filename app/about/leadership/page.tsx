@@ -9,7 +9,7 @@ export default function Leadership() {
     {
       name: 'Wyatt Leroux',
       title: 'Co-Founder & Managing Partner',
-      image: 'https://media.licdn.com/dms/image/v2/D5603AQFbapeZ6BO77g/profile-displayphoto-scale_400_400/B56ZjtJU2GHUAg-/0/1756325304218?e=1770249600&v=beta&t=E3ScV8gmRRyyJvGKATs4dS4ii1Hgeqzt39xeCydUPhc',
+      image: 'https://media.licdn.com/dms/image/v2/D5603AQFbapeZ6BO77g/profile-displayphoto-scale_200_200/B56ZjtJU2GHUAY-/0/1756325304218?e=1773878400&v=beta&t=qdjOKoDSbB-35-QkOY4DY-ZKaac3w8bFXD4pXvBGw8I',
       education: 'Bachelor of Accounting and Financial Management, University of Waterloo (Expected 2027)',
       email: 'wleroux@axiompartners.ca',
       linkedin: 'https://www.linkedin.com/in/wyatt-leroux-1a18091ba/',
